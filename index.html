@@ -7,14 +7,16 @@
         <meta name=“author“ content=“Pascal-Simon>
     <title>Startseite | Projektseite</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="index.css">
 </head>
 <body id="top">
     <header>   
         <div id="login_bereich">
-            <h1>Einloggen</h1>
-            <form action="htmls/login.html">
-                <input type="text" placeholder="Benutzername" name="Benutzername" required>
-                <input type="password" placeholder="Password" name="Password" required>
+            <form action="htmls/login.html" class="form">
+                <label for="Benutzername">Benutzername</label>
+                <input type="text" id="Benutzername" placeholder="Benutzername" name="Benutzername" required>
+                <label for="Password">Password</label>
+                <input type="password" id="Password" placeholder="Password" name="Password" required>
                 <input type="submit" value="Einloggen">
             </form>
             <a href="htmls/register.html">Hier Registrieren</a>
@@ -28,30 +30,30 @@
             <li><a href="htmls/new.html">Neues Projekt</a></li>
         </ul>
     </nav>  
-    
-    <section>
-        <h1>Spannende Projekte für<br>
-        motivierte Studierende!
+    <section id="section_one">
+        <h1><span id="welcome_one">Spannende Projekte für</span><br>
+        <span id="welcome_two">motivierte Studierende!</span>
         </h1>
     </section>
-    <section>
-        <h1>Was kann man hier tun?</h1>
-        <p>Auf dieser Seite werden Informationen angezeigt über das neuste Projekt.<br>
-            Es ist möglich sich Projekte anzuschauen, sowie neue Projekte anzulegen über die Menü Leiste.<br>
-        </p>
-        <video width="320" height="240" controls>
-            <source type="video/mp4">
-        </video>
-    </section>
-    <section>
-        <h1>Neuste Projekte</h1>
+    <section id="section_two">
+
+        <div><h1>Was kann man hier tun?</h1>
+            <p>Auf dieser Seite werden Informationen angezeigt über das neuste Projekt.<br>
+                Es ist möglich sich Projekte anzuschauen, sowie neue Projekte anzulegen über die Menü Leiste.<br>
+            </p>
+            <video width="320" height="240" controls>
+                <source src="/assets/Campus Minden.mp4" type="video/mp4">
+            </video></div>
+        <div>
+            <h1>Neuste Projekte</h1>
         <ol>
             <li><a href="htmls/projekt1.html">Projekt 1</a></li>
              <li><a href="htmls/projekt2.html">Projekt 2</a></li>
              <li><a href="htmls/projekt3.html">Projekt 3</a></li>
         </ol>
-
+        </div>
     </section>
+
     <footer>
         <a href="htmls/impressum.html">Impressum</a>
         <a href="htmls/datenschutz.html">Datenschutzerklärung</a>

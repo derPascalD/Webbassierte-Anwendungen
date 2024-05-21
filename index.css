@@ -1,0 +1,76 @@
+#section_one{
+    display: flex;
+    background-color: black;
+    justify-content: center; /* Für Horizontal */
+    align-items: center; /* Für Vertikal */
+    height: 500px;
+    padding: 20px;
+}
+
+#section_one h1{
+    color: white;
+}
+
+
+#section_two{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#section_two > div {
+    flex: 1; /* Beide Divs nehmen gleich viel Platz ein */
+    margin: 20px;
+}
+
+#welcome_one{
+    opacity: 0;
+    animation-name: ausblenden;
+    animation-duration: 8s;
+    animation-fill-mode: forwards; /* Sorgt dafür das der Endzustand bleibt */
+
+}
+
+
+
+#welcome_two{
+    opacity: 0;
+    animation-name: einblenden;
+    animation-delay:  5s;
+    animation-duration:  8s;
+    animation-fill-mode: forwards; /* Sorgt dafür das der Endzustand bleibt */
+
+}
+
+@keyframes ausblenden {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
+
+@keyframes einblenden {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@media screen and (min-width: 1920px) {
+    header {
+        background-image: url("assets/Startseite1920.jpg");
+    }
+}
+
+@media screen and (min-width: 1280px) and (max-width: 1919px) {
+    header {
+        background-image: url("assets/Startseite1280.jpg");
+    }
+}
+
+@media screen and (min-width: 640px) and (max-width: 1279px) {
+    header {
+        background-image: url("assets/Startseite640.jpg");
+    }
+}
+
+@media screen and (min-width: 0px) and (max-width: 639px) {
+    header {
+        background-image: url("assets/Startseite320.jpg");
+    }
+}

@@ -1,0 +1,85 @@
+section ul{
+    width: 500px;
+    background-color: black;
+    color: white;
+}
+
+
+
+
+section ul li {
+    list-style: none;
+    display: flex;
+    padding: 10px;    
+    justify-content: space-between;
+  
+   
+}
+
+.kurzbeschreibung{
+    background-color: beige;
+    color: black;
+    padding: 5px;
+}
+
+.projektTitel{
+    font-size: 1.5em;
+}
+
+
+section ul li a {
+    width: 500px;
+    color: white;
+    text-decoration: none;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 700;
+}
+
+
+
+section ul li a {
+    display: flex;
+    border: 3px solid black;
+}
+
+
+section ul {
+    display: block;
+
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+
+
+
+
+
+@media screen and (min-width: 1920px) {
+    header {
+        background-image: url("assets/ÜbersichtderProjekte1920.jpg");
+    }
+}
+
+@media screen and (min-width: 1280px) and (max-width: 1919px) {
+    header {
+        background-image: url("assets/ÜbersichtderProjekte1280.jpg");
+    }
+}
+
+@media screen and (min-width: 640px) and (max-width: 1279px) {
+    header {
+        background-image: url("assets/ÜbersichtderProjekte640.jpg");
+    }
+}
+
+@media screen and (min-width: 0px) and (max-width: 639px) {
+    header {
+        background-image: url("assets/ÜbersichtderProjekte320.jpg");
+    }
+}

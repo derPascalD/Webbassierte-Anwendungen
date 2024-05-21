@@ -26,7 +26,6 @@ body{
 }
 
 header{
-    background-image: url("assets/Startseite320.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -39,14 +38,22 @@ header{
 #login_bereich{
     display: flex;
     flex-direction: column;
-    justify-content: center; 
-    align-items: center;
+    justify-content: flex-end; 
+    align-items: flex-end;
     background-color: rgba(29, 27, 27, 0.225);
-    padding: 10px;
     border: 0;
     outline: 0;
     border-radius: 10px;
     color: white;
+    padding: 10px;
+}
+
+header form label{
+    padding-top: 10px;
+}
+
+header form input[type="submit"] {
+    margin-top: 10px;
 }
 
 #login_bereich form {
@@ -55,11 +62,12 @@ header{
 }
 
 #login_bereich a{
-    padding: 10px;
+  
     color: white;
     text-decoration: none;
     font-weight: 500;
     font-size: 16px;
+    padding-top: 10px;
 }
 
 
@@ -108,6 +116,7 @@ footer{
     color: white;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 
 }
 
@@ -118,21 +127,5 @@ footer a{
 }
 
 
-@media screen and (min-width: 1920px) {
-    header {
-        background-image: url("assets/Startseite1920.jpg");
-    }
-}
 
-@media screen and (min-width: 1280px) and (max-width: 1919px) {
-    header {
-        background-image: url("assets/Startseite1280.jpg");
-    }
-}
-
-@media screen and (min-width: 640px) and (max-width: 1279px) {
-    header {
-        background-image: url("assets/Startseite640.jpg");
-    }
-}
 

@@ -1,32 +1,39 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name=“description“ content=“Informationen>
-        <meta name=“author“ content=“Pascal-Simon>
-        <title>Projekt Nextstep</title>
-    </head>
-    <body id="top">
-        <header>   
-            <picture>
-                <source media="(min-width: 1920px)" srcset="/assets/Projekt1_1920.jpg" >
-                <source media="(min-width: 1280px)" srcset="/assets/Projekt1_1280.jpg">
-                <source media="(min-width: 640px)" srcset="/assets/Projekt1_640.jpg">
-                <source media="(min-width: 0px)" srcset="/assets/Projekt1_320.png">
-                <img src="" alt="">
-            </picture>
-        </header>
-        <section>
-            <h1>Menü</h1>
-            <ul>
-                 <li><a href="/index.html"><img width="100" height="100" src="/assets/startseite.svg" alt="Startseiten Icon"/></a></li>
-                <li><a href="view.html">Projekte</a></li>
-                <li><a href="new.html">Neues Projekt</a></li>
-            </ul>
-        </section>
-        
-        <section>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name=“description“ content=“Informationen>
+    <meta name=“author“ content=“Pascal-Simon>
+    <title>Projekt Nextstep</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../projektseite.css">
+</head>
+
+<body id="top">
+    <header>
+        <div id="login_bereich">
+            <h1>Einloggen</h1>
+            <form action="htmls/login.html">
+                <input type="text" placeholder="Benutzername" name="Benutzername" required>
+                <input type="password" placeholder="Password" name="Password" required>
+                <input type="submit" value="Einloggen">
+            </form>
+            <a href="htmls/register.html">Hier Registrieren</a>
+
+        </div>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="../index.html"><img width="100" height="100" src="../assets/startseite.svg"
+                        alt="Startseiten Icon" /></a></li>
+            <li><a href="view.html">Projekte</a></li>
+            <li><a href="new.html">Neues Projekt</a></li>
+        </ul>
+    </nav>
+    <section id="inhalt">
+        <section id="menu">
             <h2>Bereiche des Projekts</h2>
             <ul>
                 <li>
@@ -55,59 +62,273 @@
                     </a>
                 </li>
             </ul>
-            
+
         </section>
-        
-        <img src="/assets/Logo-NEXTstep.jpg" width="100px" height="100px" alt="NEXTSTEP"/>
-        <h2 id="titel">Titel: NEXTSTEP</h2>
-        <p id="projektleiter">Projektleiter: Simon Gartzke und Pascal Daniel</p>
-        <p id="kurzbeschreibung">Kurzbeschreibung: Webseite für Karriere</p>
-        <p id="komplettbeschreibung">Komplettbeschreibung: Bei dem Projekt handelt es sich um eien Webseite, wo man nach Job suchen kann, sowie<br>
-        Ausbildungsplätze
-        </p>
-        <ol id="projektziele">
-            <li>
-                Projektziel 
-            </li>
-            <li>
-                Projektziel
-            </li>
-        </ol>
-        
-     <form action=bewertung.html">
-        <label for="kommentar">Kommentar</label><br>
-        <input type="text" id="kommentar" name="kommentar" required><br>
-        <label for="bewertung">Bewertung abgeben: </label>
-        <br>
-        <select name="bewertung" id="bewertung" required>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <br>
-        </select>
-        <br><br>
-        <input type="submit" value="Submit">
-     </form> 
-       
         <section>
-           <h1>Einloggen</h1>
-            <form action="login.html">
-                <input type="text" placeholder="Benutzername" name="Benutzername" required>
-                <input type="password" placeholder="Password" name="Password" required>
-                <input type="submit" value="Einloggen">
-            </form>
-            <a href="register.html">Hier Registrieren</a>
-        </section>
-        <footer>
-            <a href="impressum.html">Impressum</a>
-            <a href="datenschutz.html">Datenschutzerklärung</a>
-            <a href="haftung.html">Haftungsausschluss</a>
-            <a href="#top">Zurück zum Seitenanfang</a>
-            <p>
-                Copyright und Kontaktinformationen
+            <section id="projektHeader">
+                <img src="../assets/Logo-NEXTstep.jpg" width="100px" height="100px" alt="NEXTSTEP" />
+                <h2 id="titel">NEXTSTEP</h2>
+                <p id="projektleiter">Projektleiter: Simon Gartzke und Pascal Daniel</p>
+            </section>
+
+            <p id="kurzbeschreibung">Kurzbeschreibung: Webseite für Karriere</p>
+            <p id="komplettbeschreibung">Komplettbeschreibung: Bei dem Projekt handelt es sich um eien Webseite, wo man
+                nach Job suchen kann, sowie<br>
+                Ausbildungsplätze
+                <br />
+                <br />
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quaerat nulla, consectetur quasi
+                iure autem iusto fuga consequatur perferendis dolorum eum veniam quae corporis nemo vero illum nam,
+                praesentium ab.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate totam libero labore suscipit
+                praesentium mollitia unde dolorem ea rem incidunt iste illum debitis, natus expedita necessitatibus
+                quas, dolore fugiat assumenda.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quaerat nulla, consectetur quasi
+                iure autem iusto fuga consequatur perferendis dolorum eum veniam quae corporis nemo vero illum nam,
+                praesentium ab.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate totam libero labore suscipit
+                praesentium mollitia unde dolorem ea rem incidunt iste illum debitis, natus expedita necessitatibus
+                quas, dolore fugiat assumenda.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quaerat nulla, consectetur quasi
+                iure autem iusto fuga consequatur perferendis dolorum eum veniam quae corporis nemo vero illum nam,
+                praesentium ab.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate totam libero labore suscipit
+                praesentium mollitia unde dolorem ea rem incidunt iste illum debitis, natus expedita necessitatibus
+                quas, dolore fugiat assumenda.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quaerat nulla, consectetur quasi
+                iure autem iusto fuga consequatur perferendis dolorum eum veniam quae corporis nemo vero illum nam,
+                praesentium ab.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate totam libero labore suscipit
+                praesentium mollitia unde dolorem ea rem incidunt iste illum debitis, natus expedita necessitatibus
+                quas, dolore fugiat assumenda.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quaerat nulla, consectetur quasi
+                iure autem iusto fuga consequatur perferendis dolorum eum veniam quae corporis nemo vero illum nam,
+                praesentium ab.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate totam libero labore suscipit
+                praesentium mollitia unde dolorem ea rem incidunt iste illum debitis, natus expedita necessitatibus
+                quas, dolore fugiat assumenda.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quaerat nulla, consectetur quasi
+                iure autem iusto fuga consequatur perferendis dolorum eum veniam quae corporis nemo vero illum nam,
+                praesentium ab.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate totam libero labore suscipit
+                praesentium mollitia unde dolorem ea rem incidunt iste illum debitis, natus expedita necessitatibus
+                quas, dolore fugiat assumenda.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quaerat nulla, consectetur quasi
+                iure autem iusto fuga consequatur perferendis dolorum eum veniam quae corporis nemo vero illum nam,
+                praesentium ab.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate totam libero labore suscipit
+                praesentium mollitia unde dolorem ea rem incidunt iste illum debitis, natus expedita necessitatibus
+                quas, dolore fugiat assumenda.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quaerat nulla, consectetur quasi
+                iure autem iusto fuga consequatur perferendis dolorum eum veniam quae corporis nemo vero illum nam,
+                praesentium ab.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate totam libero labore suscipit
+                praesentium mollitia unde dolorem ea rem incidunt iste illum debitis, natus expedita necessitatibus
+                quas, dolore fugiat assumenda.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quaerat nulla, consectetur quasi
+                iure autem iusto fuga consequatur perferendis dolorum eum veniam quae corporis nemo vero illum nam,
+                praesentium ab.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate totam libero labore suscipit
+                praesentium mollitia unde dolorem ea rem incidunt iste illum debitis, natus expedita necessitatibus
+                quas, dolore fugiat assumenda.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quaerat nulla, consectetur quasi
+                iure autem iusto fuga consequatur perferendis dolorum eum veniam quae corporis nemo vero illum nam,
+                praesentium ab.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate totam libero labore suscipit
+                praesentium mollitia unde dolorem ea rem incidunt iste illum debitis, natus expedita necessitatibus
+                quas, dolore fugiat assumenda.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quaerat nulla, consectetur quasi
+                iure autem iusto fuga consequatur perferendis dolorum eum veniam quae corporis nemo vero illum nam,
+                praesentium ab.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate totam libero labore suscipit
+                praesentium mollitia unde dolorem ea rem incidunt iste illum debitis, natus expedita necessitatibus
+                quas, dolore fugiat assumenda.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quaerat nulla, consectetur quasi
+                iure autem iusto fuga consequatur perferendis dolorum eum veniam quae corporis nemo vero illum nam,
+                praesentium ab.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate totam libero labore suscipit
+                praesentium mollitia unde dolorem ea rem incidunt iste illum debitis, natus expedita necessitatibus
+                quas, dolore fugiat assumenda.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quaerat nulla, consectetur quasi
+                iure autem iusto fuga consequatur perferendis dolorum eum veniam quae corporis nemo vero illum nam,
+                praesentium ab.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate totam libero labore suscipit
+                praesentium mollitia unde dolorem ea rem incidunt iste illum debitis, natus expedita necessitatibus
+                quas, dolore fugiat assumenda.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quaerat nulla, consectetur quasi
+                iure autem iusto fuga consequatur perferendis dolorum eum veniam quae corporis nemo vero illum nam,
+                praesentium ab.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate totam libero labore suscipit
+                praesentium mollitia unde dolorem ea rem incidunt iste illum debitis, natus expedita necessitatibus
+                quas, dolore fugiat assumenda.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quaerat nulla, consectetur quasi
+                iure autem iusto fuga consequatur perferendis dolorum eum veniam quae corporis nemo vero illum nam,
+                praesentium ab.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate totam libero labore suscipit
+                praesentium mollitia unde dolorem ea rem incidunt iste illum debitis, natus expedita necessitatibus
+                quas, dolore fugiat assumenda.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quaerat nulla, consectetur quasi
+                iure autem iusto fuga consequatur perferendis dolorum eum veniam quae corporis nemo vero illum nam,
+                praesentium ab.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate totam libero labore suscipit
+                praesentium mollitia unde dolorem ea rem incidunt iste illum debitis, natus expedita necessitatibus
+                quas, dolore fugiat assumenda.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quaerat nulla, consectetur quasi
+                iure autem iusto fuga consequatur perferendis dolorum eum veniam quae corporis nemo vero illum nam,
+                praesentium ab.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate totam libero labore suscipit
+                praesentium mollitia unde dolorem ea rem incidunt iste illum debitis, natus expedita necessitatibus
+                quas, dolore fugiat assumenda.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quaerat nulla, consectetur quasi
+                iure autem iusto fuga consequatur perferendis dolorum eum veniam quae corporis nemo vero illum nam,
+                praesentium ab.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quaerat nulla, consectetur quasi
+                iure autem iusto fuga consequatur perferendis dolorum eum veniam quae corporis nemo vero illum nam,
+                praesentium ab.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate totam libero labore suscipit
+                praesentium mollitia unde dolorem ea rem incidunt iste illum debitis, natus expedita necessitatibus
+                quas, dolore fugiat assumenda.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quaerat nulla, consectetur quasi
+                iure autem iusto fuga consequatur perferendis dolorum eum veniam quae corporis nemo vero illum nam,
+                praesentium ab.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate totam libero labore suscipit
+                praesentium mollitia unde dolorem ea rem incidunt iste illum debitis, natus expedita necessitatibus
+                quas, dolore fugiat assumenda.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quaerat nulla, consectetur quasi
+                iure autem iusto fuga consequatur perferendis dolorum eum veniam quae corporis nemo vero illum nam,
+                praesentium ab.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate totam libero labore suscipit
+                praesentium mollitia unde dolorem ea rem incidunt iste illum debitis, natus expedita necessitatibus
+                quas, dolore fugiat assumenda.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quaerat nulla, consectetur quasi
+                iure autem iusto fuga consequatur perferendis dolorum eum veniam quae corporis nemo vero illum nam,
+                praesentium ab.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate totam libero labore suscipit
+                praesentium mollitia unde dolorem ea rem incidunt iste illum debitis, natus expedita necessitatibus
+                quas, dolore fugiat assumenda.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quaerat nulla, consectetur quasi
+                iure autem iusto fuga consequatur perferendis dolorum eum veniam quae corporis nemo vero illum nam,
+                praesentium ab.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate totam libero labore suscipit
+                praesentium mollitia unde dolorem ea rem incidunt iste illum debitis, natus expedita necessitatibus
+                quas, dolore fugiat assumenda.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quaerat nulla, consectetur quasi
+                iure autem iusto fuga consequatur perferendis dolorum eum veniam quae corporis nemo vero illum nam,
+                praesentium ab.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate totam libero labore suscipit
+                praesentium mollitia unde dolorem ea rem incidunt iste illum debitis, natus expedita necessitatibus
+                quas, dolore fugiat assumenda.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quaerat nulla, consectetur quasi
+                iure autem iusto fuga consequatur perferendis dolorum eum veniam quae corporis nemo vero illum nam,
+                praesentium ab.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate totam libero labore suscipit
+                praesentium mollitia unde dolorem ea rem incidunt iste illum debitis, natus expedita necessitatibus
+                quas, dolore fugiat assumenda.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quaerat nulla, consectetur quasi
+                iure autem iusto fuga consequatur perferendis dolorum eum veniam quae corporis nemo vero illum nam,
+                praesentium ab.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate totam libero labore suscipit
+                praesentium mollitia unde dolorem ea rem incidunt iste illum debitis, natus expedita necessitatibus
+                quas, dolore fugiat assumenda.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quaerat nulla, consectetur quasi
+                iure autem iusto fuga consequatur perferendis dolorum eum veniam quae corporis nemo vero illum nam,
+                praesentium ab.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate totam libero labore suscipit
+                praesentium mollitia unde dolorem ea rem incidunt iste illum debitis, natus expedita necessitatibus
+                quas, dolore fugiat assumenda.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quaerat nulla, consectetur quasi
+                iure autem iusto fuga consequatur perferendis dolorum eum veniam quae corporis nemo vero illum nam,
+                praesentium ab.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate totam libero labore suscipit
+                praesentium mollitia unde dolorem ea rem incidunt iste illum debitis, natus expedita necessitatibus
+                quas, dolore fugiat assumenda.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quaerat nulla, consectetur quasi
+                iure autem iusto fuga consequatur perferendis dolorum eum veniam quae corporis nemo vero illum nam,
+                praesentium ab.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate totam libero labore suscipit
+                praesentium mollitia unde dolorem ea rem incidunt iste illum debitis, natus expedita necessitatibus
+                quas, dolore fugiat assumenda.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quaerat nulla, consectetur quasi
+                iure autem iusto fuga consequatur perferendis dolorum eum veniam quae corporis nemo vero illum nam,
+                praesentium ab.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate totam libero labore suscipit
+                praesentium mollitia unde dolorem ea rem incidunt iste illum debitis, natus expedita necessitatibus
+                quas, dolore fugiat assumenda.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quaerat nulla, consectetur quasi
+                iure autem iusto fuga consequatur perferendis dolorum eum veniam quae corporis nemo vero illum nam,
+                praesentium ab.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate totam libero labore suscipit
+                praesentium mollitia unde dolorem ea rem incidunt iste illum debitis, natus expedita necessitatibus
+                quas, dolore fugiat assumenda.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quaerat nulla, consectetur quasi
+                iure autem iusto fuga consequatur perferendis dolorum eum veniam quae corporis nemo vero illum nam,
+                praesentium ab.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate totam libero labore suscipit
+                praesentium mollitia unde dolorem ea rem incidunt iste illum debitis, natus expedita necessitatibus
+                quas, dolore fugiat assumenda.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quaerat nulla, consectetur quasi
+                iure autem iusto fuga consequatur perferendis dolorum eum veniam quae corporis nemo vero illum nam,
+                praesentium ab.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate totam libero labore suscipit
+                praesentium mollitia unde dolorem ea rem incidunt iste illum debitis, natus expedita necessitatibus
+                quas, dolore fugiat assumenda.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quaerat nulla, consectetur quasi
+                iure autem iusto fuga consequatur perferendis dolorum eum veniam quae corporis nemo vero illum nam,
+                praesentium ab.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate totam libero labore suscipit
+                praesentium mollitia unde dolorem ea rem incidunt iste illum debitis, natus expedita necessitatibus
+                quas, dolore fugiat assumenda.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quaerat nulla, consectetur quasi
+                iure autem iusto fuga consequatur perferendis dolorum eum veniam quae corporis nemo vero illum nam,
+                praesentium ab.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate totam libero labore suscipit
+                praesentium mollitia unde dolorem ea rem incidunt iste illum debitis, natus expedita necessitatibus
+                quas, dolore fugiat assumenda.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quaerat nulla, consectetur quasi
+                iure autem iusto fuga consequatur perferendis dolorum eum veniam quae corporis nemo vero illum nam,
+                praesentium ab.
+
             </p>
-        </footer>
-    </body>
+            <br />
+            <ol id="projektziele">
+                <li>
+                    Projektziel
+                </li>
+                <li>
+                    Projektziel
+                </li>
+            </ol>
+
+            <form action=bewertung.html">
+                <label for="kommentar">Kommentar</label><br>
+                <input type="text" id="kommentar" name="kommentar" required><br>
+                <label for="bewertung">Bewertung abgeben: </label>
+                <br>
+                <select name="bewertung" id="bewertung" required>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <br>
+                </select>
+                <br><br>
+                <input type="submit" value="Submit">
+            </form>
+
+        </section>
+    </section>
+
+
+    <footer>
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutzerklärung</a>
+        <a href="haftung.html">Haftungsausschluss</a>
+        <a href="#top">Zurück zum Seitenanfang</a>
+        <p>
+            Copyright und Kontaktinformationen
+        </p>
+    </footer>
+</body>
+
 </html>

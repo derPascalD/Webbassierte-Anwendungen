@@ -1,0 +1,60 @@
+#menu {
+    min-width: 200px;
+    width: 200px;
+    background-color: black;
+    color: white;
+    border-right: 2px solid red;
+}
+
+#menu a {
+    text-decoration: none;
+    color: aliceblue;
+}
+
+#menu ul li {
+    padding-top: 10px;
+}
+
+#menu ul li:hover {
+    background-color: #87cefa;
+}
+
+#inhalt {
+    display: flex;
+    flex-direction: row;
+}
+
+#inhalt img {
+    left: 0px;
+}
+
+#projektHeader {
+    position: sticky;
+    top: 0px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    background-color: aliceblue;
+    justify-content: space-between;
+}
+
+#projektHeader #titel{
+    font-size: 2em;
+    font-family: Arial;
+    background-color: #98abbe;
+}
+
+#projektleiter {
+    display: flex;
+    justify-content: flex-end;
+    background-color: #98abbe;
+}
+
+#kommentar {
+    background-color: transparent;
+}
+
+#kommentar:focus {
+    background-color: white;
+}

@@ -1,63 +1,104 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name=“description“ content=“Informationen>
-        <meta name=“author“ content=“Pascal-Simon>
-        <title>Neues Projekt erstellen</title>
-    </head>
-    <body id="top">
-        <header>   
-            <picture>
-                <source media="(min-width: 1920px)" srcset="/assets/Projekt_erstellen1920.jpg" >
-                <source media="(min-width: 1280px)" srcset="/assets/Projekt_erstellen1280.jpg">
-                <source media="(min-width: 640px)" srcset="/assets/Projekt_erstellen640.jpg">
-                <source media="(min-width: 320px)" srcset="/assets/Projekt_erstellen320.png">
-                <img src="" alt="Startseitenbild">
-            </picture>
-        </header>
-        <section>
-            <h1>Menü</h1>
-            <ul>
-                  <li><a href="/index.html"><img width="100" height="100" src="/assets/startseite.svg" alt="Startseiten Icon"/></a></li>
-                <li><a href="view.html">Projekte</a></li>
-                <li><a href="new.html">Neues Projekt</a></li>
-            </ul>
-        </section>  
-        <section>
-            <h1>Neues Projekt erstellen</h1>
-            <form action="neuesProjekt.html">
-                <input type="text" placeholder="Titel des Projektes" required name="titel"> <br>
-                Startdatum:  <input type="date" required name="startdate"> <br>
-                Enddatum: <input type="date" required name="enddate"> <br>
-                <input type="text" placeholder="Kurzbeschreibung" required name="short"><br>
-                <input type="text" placeholder="Langbeschreibung" required name="long"><br>
-                <input type="text" placeholder="Projektziel 1" required name="ziel1"><br>
-                <input type="text" placeholder="Projektziel 2" required name="ziel2"><br>
-                <input type="file" title="tes" required name="file"><br>
-                <input type="submit" value="Projekt erstellen">
-            </form>
-        </section>
-        
-       
-        <section>
-           <h1>Einloggen</h1>
-            <form action="login.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name=“description“ content=“Informationen>
+    <meta name=“author“ content=“Pascal-Simon>
+    <title>Projekt Nextstep</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../new.css">
+
+</head>
+
+<body id="top">
+    <header>
+        <div id="login_bereich">
+            <h1>Einloggen</h1>
+            <form action="htmls/login.html">
                 <input type="text" placeholder="Benutzername" name="Benutzername" required>
                 <input type="password" placeholder="Password" name="Password" required>
                 <input type="submit" value="Einloggen">
             </form>
-            <a href="register.html">Hier Registrieren</a>
+            <a href="htmls/register.html">Hier Registrieren</a>
+
+        </div>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="../index.html"><img width="100" height="100" src="../assets/startseite.svg"
+                        alt="Startseiten Icon" /></a></li>
+            <li><a href="view.html">Projekte</a></li>
+            <li><a href="new.html">Neues Projekt</a></li>
+        </ul>
+    </nav>
+    <section id="inhalt">
+        <section id="menu">
+            <h2>Bereiche des Projekts</h2>
+            <ul>
+                <li>
+                    <a href="#titel">
+                        Titel des Projekts
+                    </a>
+                </li>
+                <li>
+                    <a href="#projektleiter">
+                        Projektleiter des Projekts
+                    </a>
+                </li>
+                <li>
+                    <a href="#Kurzbeschreibung">
+                        Kurzbeschreibung des Projekts
+                    </a>
+                </li>
+                <li>
+                    <a href="#Langbeschreibung">
+                        Komplettbeschreibung des Projekts
+                    </a>
+                </li>
+                <li>
+                    <a href="#Projektziel">
+                        Ziele des Projekts
+                    </a>
+                </li>
+            </ul>
+
         </section>
-        <footer>
-            <a href="impressum.html">Impressum</a>
-            <a href="datenschutz.html">Datenschutzerklärung</a>
-            <a href="haftung.html">Haftungsausschluss</a>
-            <a href="#top">Zurück zum Seitenanfang</a>
-            <p>
-                Copyright und Kontaktinformationen
-            </p>
-        </footer>
-    </body>
+
+        <section id="projektSection">
+            <h1>Neues Projekt erstellen</h1>
+            <form id="projektForm" action="neuesProjekt.html">   
+                <section id="projektHeader">
+                        <label for="file">    
+                            <img src="../assets/Logo-NEXTstep.jpg" width="130px" height="130px"/>
+                        </label>
+                        <input type="file" style="display: none;" required id="file" name="file"><br>
+                        <input type="text" placeholder="Titel des Projektes" id="titel" required name="titel"> <br>
+                        <p id="projektleiter">Projektleiter: Username</p>
+                </section>  
+                
+                <input type="text" placeholder="Kurzbeschreibung" required name="short"><br>
+                <input type="text" placeholder="Langbeschreibung" required name="long"><br>
+                <input type="text" placeholder="Projektziel 1" required name="ziel1" class="kleineresInputFeld"><br>
+                <input type="text" placeholder="Projektziel 2" required name="ziel2" class="kleineresInputFeld"><br>
+                Startdatum:  <input type="date" required name="startdate" class="kleineresInputFeld"> <br>
+                Enddatum: <input type="date" required name="enddate" class="kleineresInputFeld"> <br>
+                <input type="submit" value="Projekt erstellen" class="kleineresInputFeld">
+            </form>
+        </section>
+    </section>
+
+
+    <footer>
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutzerklärung</a>
+        <a href="haftung.html">Haftungsausschluss</a>
+        <a href="#top">Zurück zum Seitenanfang</a>
+        <p>
+            Copyright und Kontaktinformationen
+        </p>
+    </footer>
+</body>
+
 </html>

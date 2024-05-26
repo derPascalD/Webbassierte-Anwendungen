@@ -60,3 +60,32 @@
 #kommentar:focus {
     background-color: white;
 }
+
+#projektziele {
+    padding-left: 1em;
+}
+
+
+@media screen and (min-width: 1920px) {
+    header {
+        background-image: url("./assets/Projekt1_1920.jpg");
+    }
+}
+
+@media screen and (min-width: 1280px) and (max-width: 1919px) {
+    header {
+        background-image: url("./assets/Projekt1_1280.jpg");
+    }
+}
+
+@media screen and (min-width: 640px) and (max-width: 1279px) {
+    header {
+        background-image: url("./assets/Projekt1_640.jpg");
+    }
+}
+
+@media screen and (min-width: 0px) and (max-width: 639px) {
+    header {
+        background-image: url("./assets/Projekt1_320.png");
+    }
+}

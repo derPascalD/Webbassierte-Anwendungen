@@ -1,0 +1,23 @@
+@media screen and (min-width: 1920px) {
+    header {
+        background-image: url("./assets/ProjektXY_1920.jpg");
+    }
+}
+
+@media screen and (min-width: 1280px) and (max-width: 1919px) {
+    header {
+        background-image: url("./assets/ProjektXY_1280.jpg");
+    }
+}
+
+@media screen and (min-width: 640px) and (max-width: 1279px) {
+    header {
+        background-image: url("./assets/ProjektXY_640.jpg");
+    }
+}
+
+@media screen and (min-width: 0px) and (max-width: 639px) {
+    header {
+        background-image: url("./assets/ProjektXY_320.png");
+    }
+}

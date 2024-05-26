@@ -4,6 +4,8 @@
     background-color: black;
     color: white;
     border-right: 2px solid red;
+    display: flex;
+    flex-direction: column;
 }
 
 #menu a {
@@ -11,11 +13,11 @@
     color: aliceblue;
 }
 
-#menu ul li {
-    padding-top: 10px;
+#menu a{
+    padding: 10px;
 }
 
-#menu ul li:hover {
+#menu a:hover {
     background-color: #87cefa;
 }
 

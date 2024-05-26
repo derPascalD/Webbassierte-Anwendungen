@@ -1,58 +1,79 @@
-section ul{
-    width: 500px;
-    background-color: black;
-    color: white;
+section {
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    background-color: rgb(182, 59, 89);
 }
 
 
+section ul li {
+    margin-top: 20px;
+
+ 
+    border-radius: 20px;
+}
+
+section ul li p:nth-child(1) {
+    background-color: #1B1C1D;
+}
+
+section ul li a:last-child {
+    display: flex;
+    background-color: #1B1C1D;
+    text-decoration: #ffffff;
+}
+
+section ul li {
+    color: white;
+}
+
+section ul li a,
+footer a {
+    color: #ffffff;
+}
 
 
 section ul li {
     list-style: none;
-    display: flex;
-    padding: 10px;    
-    justify-content: space-between;
-  
-   
 }
 
-.kurzbeschreibung{
+
+
+.btn-filter{
+    background-color: #1B1C1D;
+    padding: 10px;
+    color: aliceblue;
+    text-decoration: none;
+    border-radius: 10px 10px 0 0 ;
+}
+
+.filter-options {
+    padding: 10px;
+    display: none; /* Standardmäßig ausblenden */
+    position: absolute; /* Position absolut */
+    left: 0px; /* Links bündig mit dem Filter-Button */
+    background-color: #1B1C1D; /* Hintergrundfarbe */
+    border-radius: 0 10px 10px 10px ;
+ 
+}
+
+.filter-container {
+    position: relative; /* Position relativ für absolute Positionierung innerhalb */
+}
+
+.filter-container:hover .filter-options {
+    display: block; /* Anzeigen, wenn die Maus über die filter-container bewegt wird */
+}
+
+
+.kurzbeschreibung {
     background-color: beige;
     color: black;
     padding: 5px;
 }
 
-.projektTitel{
+.projektTitel {
     font-size: 1.5em;
-}
-
-
-section ul li a {
-    width: 500px;
-    color: white;
-    text-decoration: none;
-    justify-content: space-between;
-    align-items: center;
-    font-weight: 700;
-}
-
-
-
-section ul li a {
-    display: flex;
-    border: 3px solid black;
-}
-
-
-section ul {
-    display: block;
-
-}
-
-section {
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
 }
 
 

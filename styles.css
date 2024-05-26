@@ -110,6 +110,10 @@ nav img{
     background-color: rgb(237, 237, 237);
 }
 
+body{
+    background-color: rgb(182, 59, 89);
+}
+
 footer{
     background-color: black;
     display: flex;

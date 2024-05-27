@@ -1,6 +1,5 @@
 #menu {
     min-width: 200px;
-    width: 200px;
     background-color: black;
     color: white;
     border-right: 2px solid red;
@@ -24,6 +23,10 @@
 #inhalt {
     display: flex;
     flex-direction: row;
+}
+
+#seiteninhalt {     
+    width: 100%; 
 }
 
 #inhalt img {

@@ -48,7 +48,7 @@ class Projekt {
 
 const projektlaufzeit = (projektID) => {
     let summe = 0
-    for (element of allInfo.projektArtefaktData) {
+    for (let element of allInfo.projektArtefaktData) {
         if(element.idProjekt === projektID) {
             summe+=element.arbeitsaufwand
         }
@@ -62,7 +62,7 @@ class Sortieren {
         
  
         let sortable = [];
-        for (element of projekte) {
+        for (let element of projekte) {
             sortable.push([element.id, element.startDatum]);
         }
         
@@ -76,7 +76,7 @@ class Sortieren {
     
     sortProjectTime(projekte){
         let alleZeiten = []
-        for (element of projekte) {
+        for (let element of projekte) {
             alleZeiten.push([element.id, projektlaufzeit(element.id)])
         }
         alleZeiten.sort((a,b)=>{
@@ -94,9 +94,9 @@ let allInfo = {
     projektAufgabenbereichData: []
 }
 
-allInfo.projekte.push(new Projekt(5, "Testprojekt1", "Das ist ein Test", "./abc.png", "2024, 11, 5"))
-allInfo.projekte.push(new Projekt(2, "Testprojekt2", "Das ist ein zweiter Test", "./def.png", "2024, 11, 6"))
-allInfo.projekte.push(new Projekt(3, "Testprojekt3", "Das ist ein dritter Test", "./ghi.png", "2024, 11, 7"))
+allInfo.projekte.push(new Projekt(1, "Testprojekt1", "Das ist ein Test", "./abc.png", "2024, 11, 5"))
+allInfo.projekte.push(new Projekt(2, "Testprojekt2", "Das ist ein zweiter Test", "./def.png", "2024, 11, 8"))
+allInfo.projekte.push(new Projekt(3, "Testprojekt3", "Das ist ein dritter Test", "./ghi.png", "2024, 11, 1"))
 
 allInfo.aufgabenbereiche.push(new Aufgabenbereich(1, "Aufgabenbereich1", "Bereich für Aufgaben"))
 allInfo.aufgabenbereiche.push(new Aufgabenbereich(1, "Aufgabenbereich2", "Bereich für Aufgaben"))
@@ -134,5 +134,5 @@ allInfo.projektAufgabenbereichData.push(new ProjektAufgabenbereich(allInfo.proje
 
 //projektlaufzeit(1)
 let sort = new Sortieren()
-sort.sortFirstDate(allInfo.projekte)
-//sort.sortProjectTime(allInfo.projekte)
+//sort.sortFirstDate(allInfo.projekte)
+sort.sortProjectTime(allInfo.projekte)

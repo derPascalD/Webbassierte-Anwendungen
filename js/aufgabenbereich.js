@@ -1,0 +1,4 @@
+class Aufgabenbereich {
+    titel
+    kurzbeschreibung
+}

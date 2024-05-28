@@ -1,0 +1,4 @@
+class ProjektAufgabenbereich {
+    idAufgabenbereich
+    idProjekt
+}

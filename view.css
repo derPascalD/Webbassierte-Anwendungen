@@ -19,7 +19,7 @@ section ul li p:nth-child(1) {
 section ul li a:last-child {
     display: flex;
     background-color: #1B1C1D;
-    text-decoration: #ffffff;
+    
 }
 
 section ul li {
@@ -50,9 +50,9 @@ section ul li {
     width: auto;
     padding: 10px;
     display: none; /* Standardmäßig ausblenden */
-    position: absolute; /* Position absolut */
-    left: 0px; /* Links bündig mit dem Filter-Button */
-    background-color: #1B1C1D; /* Hintergrundfarbe */
+    position: absolute; 
+    left: 0px; 
+    background-color: #1B1C1D; 
     border-radius: 0 10px 10px 10px ;
     text-align: center; /* Text zentrieren */
     white-space: nowrap; /* Text nicht umbrechen */
@@ -74,7 +74,7 @@ section ul li {
 .kurzbeschreibung {
     background-color: beige;
     color: black;
-    padding: 5px;
+    padding: 5px; 
 }
 
 .projektTitel {

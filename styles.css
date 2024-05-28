@@ -17,9 +17,8 @@ body{
     padding: 10px;
     outline: none;
     border-radius: 10px;
-    background-color: rgb(7, 7, 7);
+    background-color: rgb(95, 92, 92);
     text-decoration: none;
-    border: 3px black solid;
     color: #F5FFFA;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 600;
@@ -111,7 +110,7 @@ nav img{
 }
 
 body{
-    background-color: rgb(182, 59, 89);
+    background-color: rgb(87, 189, 192);
 }
 
 footer{

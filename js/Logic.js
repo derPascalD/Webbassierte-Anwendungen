@@ -45,16 +45,17 @@ class Projekt {
 
 class Artefakt {
 
-    constructor(id, titel, kurzbeschreibung, komplettbeschreibung, aufgabenbereich, gepZeit, realTime) {
+    constructor(id, titel, kurzbeschreibung, komplettbeschreibung, gepZeit, realTime, taskID) {
         this.id = id
         this.titel = titel
         this.kurzbeschreibung = kurzbeschreibung.substring(0, 255)
         this.komplettbeschreibung = komplettbeschreibung.substring(0, 255)
-        this.objBereich = aufgabenbereich
         this.gepZeit = gepZeit
         this.realTime = realTime
+        this.taskID = taskID
     }
 }
+
 
 class Aufgabenbereich {
 
@@ -64,6 +65,23 @@ class Aufgabenbereich {
         this.kurzbeschreibung = kurzbeschreibung.substring(0, 255)
         this.projectID = projectID
 
+    }
+}
+
+class ProjektArtefakt {
+
+    constructor(idProjekt, idArtefakt, arbeitsaufwand) {
+        this.idProjekt = idProjekt
+        this.idArtefakt = idArtefakt
+        this.arbeitsaufwand = arbeitsaufwand
+    }
+}
+
+class ProjektAufgabenbereich {
+
+    constructor(idProjekt, idAufgabenbereich) {
+        this.idProjekt = idProjekt
+        this.idAufgabenbereich = idAufgabenbereich
     }
 }
 
@@ -98,6 +116,7 @@ async function loadJSON(url) {
 
 
 function createProjects(projects) {
+
     for (let i = 0; i < projects.length; i++) {
         allInfo.projekte.push(new Projekt(
             projects[i].id,
@@ -109,9 +128,8 @@ function createProjects(projects) {
             projects[i].start,
             projects[i].end))
     }
-    for (let i = 0; i < allInfo.projekte.length; i++) {
-        console.log(allInfo.projekte[i]);
-    }
+
+
 }
 
 
@@ -124,9 +142,7 @@ function createTasks(projects) {
             projects[i].project
         ))
     }
-    for (let i = 0; i < allInfo.aufgabenbereiche.length; i++) {
-        console.log(allInfo.aufgabenbereiche[i]);
-    }
+    
 }
 
 
@@ -141,47 +157,62 @@ function createArtefacts(projects) {
             projects[i].realtime,
             projects[i].taskid))
     }
-    for (let i = 0; i < allInfo.artefakte.length; i++) {
-        console.log(allInfo.artefakte[i]);
-    }
+    
 }
 
 
-loadJSON('https://scl.fh-bielefeld.de/WBA/projects.json').then(data => {
-    createProjects(data);
-});
+
+Promise.all([
+    loadJSON('https://scl.fh-bielefeld.de/WBA/projects.json').then(createProjects),
+    loadJSON('https://scl.fh-bielefeld.de/WBA/tasks.json').then(createTasks),
+    loadJSON('https://scl.fh-bielefeld.de/WBA/artefacts.json').then(createArtefacts)
+])
+    .then(() => {
+        projectRef();
+    })
+    .catch(error => console.error('Error:', error));
 
 
-loadJSON('https://scl.fh-bielefeld.de/WBA/tasks.json').then(data => {
-    createTasks(data);
-});
 
-loadJSON('https://scl.fh-bielefeld.de/WBA/artefacts.json').then(data => {
-    createArtefacts(data);
-});
+
+
+function projectRef() {
+
+
+    for (let i = 0; i < allInfo.projekte.length; i++) {
+        for (let j = 0; j < allInfo.aufgabenbereiche.length; j++) {
+            if (allInfo.projekte[i].id == allInfo.aufgabenbereiche[j].projectID) {
+                allInfo.projektAufgabenbereichData.push(new ProjektAufgabenbereich(allInfo.projekte[i].id, allInfo.aufgabenbereiche[j].id))
+            }
+
+        }
+    }
+
+
+
+    for (let i = 0; i < allInfo.projektAufgabenbereichData.length; i++) {
+        for (let j = 0; j < allInfo.artefakte.length; j++) {
+            if (allInfo.projektAufgabenbereichData[i].idAufgabenbereich == allInfo.artefakte[j].taskID) {
+                allInfo.projektArtefaktData.push(new ProjektArtefakt(allInfo.projektAufgabenbereichData[i].idProjekt, allInfo.artefakte[j].id, allInfo.artefakte[j].realtime))
+            }
+
+        }
+    }
+
+    for (let i = 0; i < allInfo.projektAufgabenbereichData.length; i++) {
+        console.log(allInfo.projektAufgabenbereichData[i]);
+    }
+
+    for (let i = 0; i < allInfo.projektArtefaktData.length; i++) {
+        console.log(allInfo.projektArtefaktData[i]);
+    }
+
+}
+
+
+projectRef();
 
 /*
-
-
-allInfo.projektArtefaktData.push(new ProjektArtefakt(allInfo.projekte[0].id, allInfo.artefakte[0].id, 9))
-allInfo.projektArtefaktData.push(new ProjektArtefakt(allInfo.projekte[0].id, allInfo.artefakte[1].id, 8))
-
-allInfo.projektArtefaktData.push(new ProjektArtefakt(allInfo.projekte[1].id, allInfo.artefakte[2].id, 19))
-allInfo.projektArtefaktData.push(new ProjektArtefakt(allInfo.projekte[1].id, allInfo.artefakte[3].id, 22))
-
-allInfo.projektArtefaktData.push(new ProjektArtefakt(allInfo.projekte[2].id, allInfo.artefakte[4].id, 20))
-allInfo.projektArtefaktData.push(new ProjektArtefakt(allInfo.projekte[2].id, allInfo.artefakte[5].id, 40))
-
-allInfo.projektAufgabenbereichData.push(new ProjektAufgabenbereich(allInfo.projekte[0].id, allInfo.aufgabenbereiche[0].id))
-allInfo.projektAufgabenbereichData.push(new ProjektAufgabenbereich(allInfo.projekte[0].id, allInfo.aufgabenbereiche[1].id))
-
-allInfo.projektAufgabenbereichData.push(new ProjektAufgabenbereich(allInfo.projekte[1].id, allInfo.aufgabenbereiche[0].id))
-allInfo.projektAufgabenbereichData.push(new ProjektAufgabenbereich(allInfo.projekte[1].id, allInfo.aufgabenbereiche[1].id))
-
-allInfo.projektAufgabenbereichData.push(new ProjektAufgabenbereich(allInfo.projekte[2].id, allInfo.aufgabenbereiche[0].id))
-allInfo.projektAufgabenbereichData.push(new ProjektAufgabenbereich(allInfo.projekte[2].id, allInfo.aufgabenbereiche[1].id))
-
-
 
 
 //projektlaufzeit(1)

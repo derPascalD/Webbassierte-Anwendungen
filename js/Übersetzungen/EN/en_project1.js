@@ -1,5 +1,5 @@
-var en_base = new Map([
-    ["text-title", "New Project"],
+var en_project1 = new Map([
+    ["text-title", "New Project 1"],
     ["text-a-project-title"," Project title"],
     ["text-a-projektleiter"," Projectleader for Projcts"],
     ["text-a-kurzbescheibung","Shortdescription of the Projects"],

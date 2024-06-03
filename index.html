@@ -5,61 +5,62 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name=“description“ content=“Informationen>
         <meta name=“author“ content=“Pascal-Simon>
-    <title>Startseite | Projektseite</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="index.css">
+    <title id="text-title">Startseite | Projektseite</title>
+    <link rel="stylesheet" href="CSS/styles.css">
+    <link rel="stylesheet" href="CSS/index.css">
+   <script src="/js/translater.js"></script>
 </head>
 <body id="top">
     <header>   
         <div id="login_bereich">
             <form action="htmls/login.html" class="form">
-                <label for="Benutzername">Benutzername</label>
+                <label for="Benutzername" id="text-label-Benutzername">Benutzername</label>
                 <input type="text" id="Benutzername" placeholder="Benutzername" name="Benutzername" required>
-                <label for="Password">Password</label>
+                <label for="Password" id="text-label-password">Password</label>
                 <input type="password" id="Password" placeholder="Password" name="Password" required>
                 <input type="submit" value="Einloggen">
             </form>
-            <a href="htmls/register.html">Hier Registrieren</a>
+            <a href="htmls/register.html" id="text-a-register">Hier Registrieren</a>
 
         </div>
     </header>
     <nav>
         <ul>
             <li><a href="index.html"><img width="100" height="100" src="/assets/startseite.svg" alt="Startseiten Icon"/></a></li>
-            <li><a href="htmls/view.html">Projekte</a></li>
-            <li><a href="htmls/new.html">Neues Projekt</a></li>
+            <li><a href="htmls/view.html" id="text-a-menu-one">Projekte</a></li>
+            <li><a href="htmls/new.html" id="text-a-menu-two">Neues Projekt</a></li>
         </ul>
     </nav>  
     <section id="section_one">
-        <h1><span id="welcome_one" style="font-size: 3em;">Spannende Projekte für</span><br>
-        <span id="welcome_two" style="font-size: 3em;">motivierte Studierende!</span>
+        <h1><span id="welcome_one" style="font-size: 3em;" id="text-h1-Zeile1">Spannende Projekte für</span><br>
+        <span id="welcome_two" style="font-size: 3em;" id="text-h1-Zeile2">motivierte Studierende!</span>
         </h1>
     </section>
     <section id="section_two">
 
-        <div><h1>Was kann man hier tun?</h1>
-            <p>Auf dieser Seite werden Informationen angezeigt über das neuste Projekt.<br>
+        <div><h1 id="text-h1-question-one">Was kann man hier tun?</h1>
+            <p id="text-p-answer-one">Auf dieser Seite werden Informationen angezeigt über das neuste Projekt.<br>
                 Es ist möglich sich Projekte anzuschauen, sowie neue Projekte anzulegen über die Menü Leiste.<br>
             </p>
             <video width="320" height="240" controls>
                 <source src="/assets/Campus Minden.mp4" type="video/mp4">
             </video></div>
         <div>
-            <h1>Neuste Projekte</h1>
+            <h1 id="text-h1-title-one">Neuste Projekte</h1>
         <ol>
-            <li><a href="htmls/projekt1.html">Projekt 1</a></li>
-             <li><a href="htmls/projekt2.html">Projekt 2</a></li>
-             <li><a href="htmls/projekt3.html">Projekt 3</a></li>
+            <li><a href="htmls/projekt1.html" id="text-a-projekt-one">Projekt 1</a></li>
+             <li><a href="htmls/projekt2.html" id="text-a-projekt-two">Projekt 2</a></li>
+             <li><a href="htmls/projekt3.html" id="text-a-projekt-three">Projekt 3</a></li>
         </ol>
         </div>
     </section>
 
     <footer>
-        <a href="htmls/impressum.html">Impressum</a>
-        <a href="htmls/datenschutz.html">Datenschutzerklärung</a>
-        <a href="htmls/haftung.html">Haftungsausschluss</a>
-        <a id="scroll_top" href="#top">Zurück zum Seitenanfang</a>
-        <p>
+        <a href="htmls/impressum.html" id="text-a-impressum">Impressum</a>
+        <a href="htmls/datenschutz.html" id="text-a-datenschutz">Datenschutzerklärung</a>
+        <a href="htmls/haftung.html" id="text-a-haftung">Haftungsausschluss</a>
+        <a id="scroll_top" href="#top" id="text-a-scroll-top">Zurück zum Seitenanfang</a>
+        <p id="text-p-copyright">
             Copyright und Kontaktinformationen
         </p>
     </footer>

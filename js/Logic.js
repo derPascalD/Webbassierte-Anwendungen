@@ -142,22 +142,26 @@ function createTasks(projects) {
             projects[i].project
         ))
     }
-    
+
 }
 
 
-function createArtefacts(projects) {
-    for (let i = 0; i < projects.length; i++) {
+function createArtefacts(artefacts) {
+    for (let i = 0; i < artefacts.length; i++) {
+        let realTime = "0:00"
+        if (artefacts[i].realtime) {
+            realTime = artefacts[i].realtime;
+        }
         allInfo.artefakte.push(new Artefakt(
-            projects[i].id,
-            projects[i].name,
-            projects[i].shortdesc,
-            projects[i].longdesc,
-            projects[i].planedtime,
-            projects[i].realtime,
-            projects[i].taskid))
+            artefacts[i].id,
+            artefacts[i].name,
+            artefacts[i].shortdesc,
+            artefacts[i].longdesc,
+            artefacts[i].planedtime,
+            realTime,
+            artefacts[i].taskid))
     }
-    
+
 }
 
 
@@ -190,10 +194,10 @@ function projectRef() {
 
 
 
-    for (let i = 0; i < allInfo.projektAufgabenbereichData.length; i++) {
-        for (let j = 0; j < allInfo.artefakte.length; j++) {
-            if (allInfo.projektAufgabenbereichData[i].idAufgabenbereich == allInfo.artefakte[j].taskID) {
-                allInfo.projektArtefaktData.push(new ProjektArtefakt(allInfo.projektAufgabenbereichData[i].idProjekt, allInfo.artefakte[j].id, allInfo.artefakte[j].realtime))
+    for (let i = 0; i < allInfo.artefakte.length; i++) {
+        for (let j = 0; j < allInfo.projektAufgabenbereichData.length; j++) {
+            if (allInfo.artefakte[i].taskID === allInfo.projektAufgabenbereichData[j].idAufgabenbereich) {
+                allInfo.projektArtefaktData.push(new ProjektArtefakt(allInfo.projektAufgabenbereichData[j].idProjekt, allInfo.artefakte[i].id, allInfo.artefakte[i].realTime))
             }
 
         }

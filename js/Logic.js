@@ -107,11 +107,23 @@ const projektlaufzeit = (projektID) => {
 }
 
 
+let option = {
+    methods: "POST",
+    mode: 'cors',
+    headers: {
+    'Access-Control-Allow-Origin':'*'
+    }
+}
+
 
 async function loadJSON(url) {
-    const res = await fetch(url);
-    return await res.json();
+    const response = await fetch(url, option)
+    .catch(error=>{
+        console.log(error);
+    });
+    return await response.json(); // Warten bis wir in den fullFill Zustand übergegangen sind
 }
+
 
 
 
@@ -167,9 +179,12 @@ function createArtefacts(artefacts) {
 
 
 Promise.all([
-    loadJSON('https://scl.fh-bielefeld.de/WBA/projects.json').then(createProjects),
-    loadJSON('https://scl.fh-bielefeld.de/WBA/tasks.json').then(createTasks),
-    loadJSON('https://scl.fh-bielefeld.de/WBA/artefacts.json').then(createArtefacts)
+    loadJSON('https://scl.fh-bielefeld.de/WBA/projects.json')
+    .then(createProjects),
+    loadJSON('https://scl.fh-bielefeld.de/WBA/tasks.json')
+    .then(createTasks),
+    loadJSON('https://scl.fh-bielefeld.de/WBA/artefacts.json')
+    .then(createArtefacts)
 ])
     .then(() => {
         projectRef();
@@ -216,11 +231,3 @@ function projectRef() {
 
 projectRef();
 
-/*
-
-
-//projektlaufzeit(1)
-let sort = new Sortieren()
-//sort.sortFirstDate(allInfo.projekte)
-sort.sortProjectTime(allInfo.projekte)
-*/

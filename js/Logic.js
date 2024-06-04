@@ -28,7 +28,7 @@ class Sortieren {
         return alleZeiten
     }
 }
-
+/*
 class Projekt {
     constructor(id, titel, kurzbeschreibung, komplettbeschreibung, pfadZuProjektLogo, maintainer, startDatum, endDatum) {
         this.id = id
@@ -66,7 +66,7 @@ class Aufgabenbereich {
 
     }
 }
-
+*/
 
 
 let allInfo = {
@@ -146,7 +146,7 @@ function createArtefacts(projects) {
     }
 }
 
-
+/*
 loadJSON('https://scl.fh-bielefeld.de/WBA/projects.json').then(data => {
     createProjects(data);
 });
@@ -159,6 +159,39 @@ loadJSON('https://scl.fh-bielefeld.de/WBA/tasks.json').then(data => {
 loadJSON('https://scl.fh-bielefeld.de/WBA/artefacts.json').then(data => {
     createArtefacts(data);
 });
+*/
+function addNewProject(Projekt, Artefakt, Aufgabenbereich) {
+    if (localStorage.getItem("projekt")) {
+        console.log("Projekt geladen");
+        const proj = JSON.parse(localStorage.getItem("projekt"))
+        localStorage.removeItem("projekt")
+        addNewProject(proj.projekt, proj.artefakt, proj.aufgabenbereich)
+    } else {
+        console.log("Projekt neu");
+        fetch('https://scl.fh-bielefeld.de/WBA/projectsAPI', {
+            method: 'post',
+            body: {
+                Projekt: Projekt,
+                Artefakt: Artefakt,
+                aufgabenbereich: Aufgabenbereich
+            }
+        }).then(res =>{
+            console.log("Objekt erfolgreich zum Server geschickt");
+        }).catch(err => {
+            // Projekt im Localstorage anlegen wenn Fehler ist 
+            const localProj = {
+                projekt: Projekt,
+                artefakt: Artefakt,
+                aufgabenbereich: Aufgabenbereich
+            }
+            localStorage.setItem("projekt", JSON.stringify( localProj ))
+        })
+    }
+}
+
+window.onload = addNewProject()
+
+//addNewProject(new Projekt(0,"a","a","a","b","a","1.1.2024","1.2.2024"), new Artefakt(0,"a","a","a",0,20,11), new Aufgabenbereich(0,"a","a",0))
 
 /*
 

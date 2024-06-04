@@ -7,7 +7,7 @@ class Projekt {
         this.pfadZuProjektLogo = pfadZuProjektLogo
         this.maintainer = maintainer
         this.startDatum = new Date(startDatum)
-        this.enddatum = new Date(endDatum)
+        this.endDatum = new Date(endDatum)
     }
 
 }

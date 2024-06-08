@@ -109,17 +109,9 @@ const projektlaufzeit = (projektID) => {
 }
 
 
-let option = {
-    methods: "POST",
-    mode: 'cors',
-    headers: {
-    'Access-Control-Allow-Origin':'*'
-    }
-}
-
 
 async function loadJSON(url) {
-    const response = await fetch(url, option)
+    const response = await fetch(url)
     .catch(error=>{
         console.log(error);
     });
@@ -183,14 +175,7 @@ function addNewProject(Projekt, Artefakt, Aufgabenbereich) {
         addNewProject(proj.projekt, proj.artefakt, proj.aufgabenbereich)
     } else {
         console.log("Projekt neu");
-        fetch('https://scl.fh-bielefeld.de/WBA/projectsAPI', {
-            method: 'post',
-            body: {
-                Projekt: Projekt,
-                Artefakt: Artefakt,
-                aufgabenbereich: Aufgabenbereich
-            }
-        }).then(res =>{
+        fetch('projects.json').then(res =>{ // https://scl.fh-bielefeld.de/WBA/projectsAPI Da kommt 404 Fehler
             console.log("Objekt erfolgreich zum Server geschickt");
         }).catch(err => {
             // Projekt im Localstorage anlegen wenn Fehler ist 
@@ -204,20 +189,23 @@ function addNewProject(Projekt, Artefakt, Aufgabenbereich) {
     }
 }
 
-window.onload = addNewProject()
 
-//addNewProject(new Projekt(0,"a","a","a","b","a","1.1.2024","1.2.2024"), new Artefakt(0,"a","a","a",0,20,11), new Aufgabenbereich(0,"a","a",0))
 
+if(localStorage.getItem("projekt")){
+    addNewProject()
+    console.log("NICHT LEER")
+}else{
+    console.log("LEER")
+    localStorage.removeItem("projekt")
+    addNewProject(new Projekt(0,"a","a","a","b","a","1.1.2024","1.2.2024"), new Artefakt(0,"a","a","a",0,20,11), new Aufgabenbereich(0,"a","a",0))
+}
 
 
 
 Promise.all([
-    loadJSON('https://scl.fh-bielefeld.de/WBA/projects.json')
-    .then(createProjects),
-    loadJSON('https://scl.fh-bielefeld.de/WBA/tasks.json')
-    .then(createTasks),
-    loadJSON('https://scl.fh-bielefeld.de/WBA/artefacts.json')
-    .then(createArtefacts)
+    loadJSON('projects.json').then(createProjects),
+    loadJSON('tasks.json').then(createTasks),
+    loadJSON('artefacts.json').then(createArtefacts)
 ])
     .then(() => {
         projectRef();

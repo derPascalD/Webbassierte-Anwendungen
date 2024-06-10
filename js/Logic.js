@@ -112,9 +112,9 @@ const projektlaufzeit = (projektID) => {
 
 async function loadJSON(url) {
     const response = await fetch(url)
-    .catch(error=>{
-        console.log(error);
-    });
+        .catch(error => {
+            console.log(error);
+        });
     return await response.json(); // Warten bis wir in den fullFill Zustand übergegangen sind
 }
 
@@ -166,6 +166,33 @@ function createArtefacts(artefacts) {
 
 }
 
+/* 404 Fehler
+function addNewProject(Projekt, Artefakt, Aufgabenbereich) {
+    const localProj = {
+        projekt: Projekt,
+        artefakt: Artefakt,
+        aufgabenbereich: Aufgabenbereich
+    }
+    if (localStorage.getItem("projekt")) {
+        console.log("Projekt geladen");
+        const proj = JSON.parse(localStorage.getItem("projekt"))
+        localStorage.removeItem("projekt")
+        addNewProject(proj.projekt, proj.artefakt, proj.aufgabenbereich)
+    } else {
+        console.log("Projekt neu");
+        fetch('https://scl.fh-bielefeld.de/WBA/projectsAPI', {
+            method: "POST",
+            body: JSON.stringify(localProj)
+        }).then(res => {
+            console.log("Objekt erfolgreich zum Server geschickt");
+        }).catch(err => {
+            // Projekt im Localstorage anlegen wenn Fehler ist 
+            localStorage.setItem("projekt", JSON.stringify(localProj))
+        })
+    }
+}
+*/
+
 
 function addNewProject(Projekt, Artefakt, Aufgabenbereich) {
     if (localStorage.getItem("projekt")) {
@@ -191,13 +218,13 @@ function addNewProject(Projekt, Artefakt, Aufgabenbereich) {
 
 
 
-if(localStorage.getItem("projekt")){
+
+if (localStorage.getItem("projekt")) {
     addNewProject()
     console.log("NICHT LEER")
-}else{
+} else {
     console.log("LEER")
-    localStorage.removeItem("projekt")
-    addNewProject(new Projekt(0,"a","a","a","b","a","1.1.2024","1.2.2024"), new Artefakt(0,"a","a","a",0,20,11), new Aufgabenbereich(0,"a","a",0))
+    addNewProject(new Projekt(0, "a", "a", "a", "b", "a", "1.1.2024", "1.2.2024"), new Artefakt(0, "a", "a", "a", 0, 20, 11), new Aufgabenbereich(0, "a", "a", 0))
 }
 
 
@@ -209,8 +236,47 @@ Promise.all([
 ])
     .then(() => {
         projectRef();
+        printAllDatas();
     })
     .catch(error => console.error('Error:', error));
+
+function printAllDatas() {
+
+    console.log("Projekte");
+    for (let i = 0; i < allInfo.projekte.length; i++) {
+        console.log(allInfo.projekte[i]);
+    }
+
+    console.log("Artefakte");
+    for (let i = 0; i < allInfo.artefakte.length; i++) {
+        console.log(allInfo.artefakte[i]);
+    }
+
+    console.log("Aufgabenbereiche");
+    for (let i = 0; i < allInfo.aufgabenbereiche.length; i++) {
+        console.log(allInfo.aufgabenbereiche[i]);
+    }
+
+
+    console.log("Projekt : Aufgabenbereich");
+    for (let i = 0; i < allInfo.projektAufgabenbereichData.length; i++) {
+        console.log(allInfo.projektAufgabenbereichData[i]);
+    }
+
+    console.log("Projekt : Artefakt");
+    for (let i = 0; i < allInfo.projektArtefaktData.length; i++) {
+        console.log(allInfo.projektArtefaktData[i]);
+    }
+
+}
+
+/*
+
+1 hat 1 - 9 Artefakte
+
+1 hat 1-3 Aufgabenbereiche
+
+*/
 
 
 function projectRef() {
@@ -236,16 +302,7 @@ function projectRef() {
         }
     }
 
-    for (let i = 0; i < allInfo.projektAufgabenbereichData.length; i++) {
-        console.log(allInfo.projektAufgabenbereichData[i]);
-    }
-
-    for (let i = 0; i < allInfo.projektArtefaktData.length; i++) {
-        console.log(allInfo.projektArtefaktData[i]);
-    }
-
 }
 
 
-projectRef();
 

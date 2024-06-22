@@ -31,7 +31,7 @@ class Sortieren {
 
 
 class Projekt {
-    constructor(id, titel, kurzbeschreibung, komplettbeschreibung, pfadZuProjektLogo, maintainer, startDatum, endDatum) {
+    constructor(id, titel, kurzbeschreibung, komplettbeschreibung, pfadZuProjektLogo, maintainer, startDatum, endDatum, projektZeit, max = 0, min = 0, span = 0) {
         this.id = id
         this.titel = titel
         this.kurzbeschreibung = kurzbeschreibung.substring(0, 255)
@@ -40,6 +40,10 @@ class Projekt {
         this.maintainer = maintainer
         this.startDatum = new Date(startDatum)
         this.enddatum = new Date(endDatum)
+        this.max = max;
+        this.min = min;
+        this.span = span;
+        this.projektZeit = projektZeit;
     }
 
 }
@@ -108,6 +112,16 @@ const projektlaufzeit = (projektID) => {
     return sum
 }
 
+function addProjetDuration() {
+
+    for (let i = 0; i < allInfo.projekte.length; i++) {
+
+        let sum = projektlaufzeit(allInfo.projekte[i].id)
+        allInfo.projekte[i].projektZeit = sum;
+
+    }
+
+}
 
 
 async function loadJSON(url) {
@@ -119,79 +133,61 @@ async function loadJSON(url) {
 }
 
 
-function createProjects(projects) {
+function createProjects(result) {
+
+    let projects = result.records;
 
     for (let i = 0; i < projects.length; i++) {
         allInfo.projekte.push(new Projekt(
-            projects[i].id,
-            projects[i].name,
-            projects[i].shortdesc,
-            projects[i].longdesc,
-            projects[i].logourl,
+            projects[i].id_projekt,
+            projects[i].titel,
+            projects[i].kurzbeschreibung,
+            projects[i].komplettbeschreibung,
+            projects[i].pfadzulogo,
             projects[i].maintainer,
-            projects[i].start,
-            projects[i].end))
+            projects[i].startdatum,
+            projects[i].enddatum))
     }
 
 }
 
 
-function createTasks(projects) {
-    for (let i = 0; i < projects.length; i++) {
+function createTasks(result) {
+
+    let tasks = result.records;
+
+    for (let i = 0; i < tasks.length; i++) {
         allInfo.aufgabenbereiche.push(new Aufgabenbereich(
-            projects[i].id,
-            projects[i].name,
-            projects[i].shortdesc,
-            projects[i].project
+            tasks[i].id_task,
+            tasks[i].titel,
+            tasks[i].kurzbeschreibung,
+            tasks[i].id_projekt
         ))
     }
 }
 
 
-function createArtefacts(artefacts) {
+function createArtefacts(result) {
+
+    let artefacts = result.records;
+
+
     for (let i = 0; i < artefacts.length; i++) {
         let realTime = "0:00"
         if (artefacts[i].realtime) {
             realTime = artefacts[i].realtime;
         }
         allInfo.artefakte.push(new Artefakt(
-            artefacts[i].id,
-            artefacts[i].name,
-            artefacts[i].shortdesc,
-            artefacts[i].longdesc,
-            artefacts[i].planedtime,
-            realTime,
-            artefacts[i].taskid))
+            artefacts[i].id_artefakt,
+            artefacts[i].titel,
+            artefacts[i].kurzbeschreibung,
+            artefacts[i].komplettbeschreibung,
+            artefacts[i].geplantezeit,
+            artefacts[i].realtime,
+            artefacts[i].id_task))
     }
 
 }
-
-/* 404 Fehler
-function addNewProject(Projekt, Artefakt, Aufgabenbereich) {
-    const localProj = {
-        projekt: Projekt,
-        artefakt: Artefakt,
-        aufgabenbereich: Aufgabenbereich
-    }
-    if (localStorage.getItem("projekt")) {
-        console.log("Projekt geladen");
-        const proj = JSON.parse(localStorage.getItem("projekt"))
-        localStorage.removeItem("projekt")
-        addNewProject(proj.projekt, proj.artefakt, proj.aufgabenbereich)
-    } else {
-        console.log("Projekt neu");
-        fetch('https://scl.fh-bielefeld.de/WBA/projectsAPI', {
-            method: "POST",
-            body: JSON.stringify(localProj)
-        }).then(res => {
-            console.log("Objekt erfolgreich zum Server geschickt");
-        }).catch(err => {
-            // Projekt im Localstorage anlegen wenn Fehler ist 
-            localStorage.setItem("projekt", JSON.stringify(localProj))
-        })
-    }
-}
-*/
 
 
 function addNewProject(Projekt, Artefakt, Aufgabenbereich) {
@@ -202,7 +198,7 @@ function addNewProject(Projekt, Artefakt, Aufgabenbereich) {
         addNewProject(proj.projekt, proj.artefakt, proj.aufgabenbereich)
     } else {
         console.log("Projekt neu");
-        fetch('projects.json').then(res =>{ // https://scl.fh-bielefeld.de/WBA/projectsAPI Da kommt 404 Fehler
+        fetch('projects.json').then(res => { // https://scl.fh-bielefeld.de/WBA/projectsAPI Da kommt 404 Fehler
             console.log("Objekt erfolgreich zum Server geschickt");
         }).catch(err => {
             // Projekt im Localstorage anlegen wenn Fehler ist 
@@ -211,13 +207,24 @@ function addNewProject(Projekt, Artefakt, Aufgabenbereich) {
                 artefakt: Artefakt,
                 aufgabenbereich: Aufgabenbereich
             }
-            localStorage.setItem("projekt", JSON.stringify( localProj ))
+            localStorage.setItem("projekt", JSON.stringify(localProj))
         })
     }
 }
 
+function responseMinMaxSpan(result) {
 
 
+    allInfo.projekte.forEach(element => {
+
+        element.min = result.min;
+        element.max = result.max;
+        element.span = result.span;
+    });
+}
+
+
+/*
 
 if (localStorage.getItem("projekt")) {
     addNewProject()
@@ -227,18 +234,35 @@ if (localStorage.getItem("projekt")) {
     addNewProject(new Projekt(0, "a", "a", "a", "b", "a", "1.1.2024", "1.2.2024"), new Artefakt(0, "a", "a", "a", 0, 20, 11), new Aufgabenbereich(0, "a", "a", 0))
 }
 
+*/
 
 
 Promise.all([
-    loadJSON('projects.json').then(createProjects),
-    loadJSON('tasks.json').then(createTasks),
-    loadJSON('artefacts.json').then(createArtefacts)
+    loadJSON('http://localhost:8080/SmartData/smartdata/records/projekt').then(createProjects),
+    loadJSON('http://localhost:8080/SmartData/smartdata/records/task').then(createTasks),
+    loadJSON('http://localhost:8080/SmartData/smartdata/records/artefakt').then(createArtefacts),
+
 ])
     .then(() => {
+        loadJSON('http://localhost:8080/SmartDataLyserWBA/smartdatalyser/statistic/minmaxspan?smartdataurl=http://localhost:8080/SmartData&collection=artefakt&storage=public&column=realtime').then(responseMinMaxSpan)
+    }
+
+    )
+    .then(() => {
         projectRef();
-        printAllDatas();
+        addProjetDuration();
+        printProjects();
     })
     .catch(error => console.error('Error:', error));
+
+
+function printProjects() {
+    console.log("Projekte");
+    for (let i = 0; i < allInfo.projekte.length; i++) {
+        console.log(allInfo.projekte[i]);
+    }
+}
+
 
 function printAllDatas() {
 
@@ -270,13 +294,6 @@ function printAllDatas() {
 
 }
 
-/*
-
-1 hat 1 - 9 Artefakte
-
-1 hat 1-3 Aufgabenbereiche
-
-*/
 
 
 function projectRef() {
@@ -303,6 +320,35 @@ function projectRef() {
     }
 
 }
+
+
+/* 404 Fehler
+function addNewProject(Projekt, Artefakt, Aufgabenbereich) {
+    const localProj = {
+        projekt: Projekt,
+        artefakt: Artefakt,
+        aufgabenbereich: Aufgabenbereich
+    }
+    if (localStorage.getItem("projekt")) {
+        console.log("Projekt geladen");
+        const proj = JSON.parse(localStorage.getItem("projekt"))
+        localStorage.removeItem("projekt")
+        addNewProject(proj.projekt, proj.artefakt, proj.aufgabenbereich)
+    } else {
+        console.log("Projekt neu");
+        fetch('https://scl.fh-bielefeld.de/WBA/projectsAPI', {
+            method: "POST",
+            body: JSON.stringify(localProj)
+        }).then(res => {
+            console.log("Objekt erfolgreich zum Server geschickt");
+        }).catch(err => {
+            // Projekt im Localstorage anlegen wenn Fehler ist 
+            localStorage.setItem("projekt", JSON.stringify(localProj))
+        })
+    }
+}
+*/
+
 
 
 

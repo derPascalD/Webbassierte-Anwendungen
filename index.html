@@ -8,23 +8,76 @@
     <meta name=“author“ content=“Pascal-Simon>
     <title id="text-title">Startseite | Projektseite</title>
     <link rel="stylesheet" href="CSS/index.css">
-    <script src="./js/translate.js"></script>
     <link rel="stylesheet" href="CSS/styles.css">
     <script src="./js/Logic.js"></script>
+    <script src="./js/main.js"></script>
+
+    <script type="module">
+        import en_base from '../js/Übersetzungen/EN/en_base.js';
+        import de_base from '../js/Übersetzungen/DE/de_base.js';
+        import en_index from '../js/Übersetzungen/EN/en_index.js';
+        import de_index from '../js/Übersetzungen/DE/de_index.js';
+
+        function checkLanguage() {
+            let userLang = navigator.language;
+
+            if (userLang.indexOf("en") >= 0) {
+                translate(en_base);
+                translate(en_index);
+            } else {
+                translate(de_base);
+                translate(de_index);
+            }
+
+        }
+
+        function translate(datas){
+
+            datas.forEach((value, key) => {
+                var element = document.getElementById(key);
+                if (element) {
+            if (element.tagName === 'INPUT' && element.type === 'submit') {
+                element.value = value; // Ändern des value-Attributs für submit-Button
+            } else {
+                element.textContent = value; // Ändern des textContent für andere Elemente
+            }
+        }
+            });
+            
+        }
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+            checkLanguage();
+            
+        });
+
+
+    </script>
+
+
 </head>
+
 
 <body id="top">
     <header>
-        <div id="login_bereich">
-            <form action="htmls/login.html" class="form">
+        <div style="position: relative; left: 50%">
+            <h1 id="titel" >Starseite</h1>
+        </div>
+        <div id="login_bereich" style="display: flex; justify-content: end;">
+            <form id="loginForm" class="form">
                 <label for="Benutzername" id="text-label-Benutzername">Benutzername</label>
                 <input type="text" id="Benutzername" placeholder="Benutzername" name="Benutzername" required>
                 <label for="Password" id="text-label-password">Password</label>
                 <input type="password" id="Password" placeholder="Password" name="Password" required>
-                <input type="submit" value="Einloggen">
+                <input id="login" type="submit" value="Einloggen">
             </form>
+            <div style="height: 20px;"></div>
             <a href="htmls/register.html" id="text-a-register">Hier Registrieren</a>
-
+        </div>
+        <div id="logOut" style="display: none;">
+            <a style="cursor: pointer; border-radius: 10px; background-color: aliceblue; border: 3px solid white; padding: 5px; margin-right: 30px;" onclick="doLogout()">Logout</a>
         </div>
     </header>
     <nav>
@@ -36,8 +89,8 @@
         </ul>
     </nav>
     <section id="section_one">
-        <h1><span id="welcome_one" style="font-size: 3em;" id="text-h1-Zeile1">Spannende Projekte für</span><br>
-            <span id="welcome_two" style="font-size: 3em;" id="text-h1-Zeile2">motivierte Studierende!</span>
+        <h1><span class="welcome_one" style="font-size: 3em;" id="text-h1-Zeile1">Spannende Projekte für</span><br>
+            <span class="welcome_two" style="font-size: 3em;" id="text-h1-Zeile2">motivierte Studierende!</span>
         </h1>
     </section>
     <section id="section_two">
@@ -65,7 +118,7 @@
         <a href="htmls/impressum.html" id="text-a-impressum">Impressum</a>
         <a href="htmls/datenschutz.html" id="text-a-datenschutz">Datenschutzerklärung</a>
         <a href="htmls/haftung.html" id="text-a-haftung">Haftungsausschluss</a>
-        <a id="scroll_top" href="#top" id="text-a-scroll-top">Zurück zum Seitenanfang</a>
+        <a id="scroll_top" href="#top" >Zurück zum Seitenanfang</a>
         <p id="text-p-copyright">
             Copyright und Kontaktinformationen
         </p>

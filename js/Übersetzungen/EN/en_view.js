@@ -1,5 +1,7 @@
 var en_view = new Map([
-    ["text-title", "Overview of projects"]
+    ["titel", "Projectview"]
 
 
 ])
+
+export default en_view

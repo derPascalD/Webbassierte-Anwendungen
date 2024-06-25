@@ -1,5 +1,5 @@
-var de_project2 = new Map([
-    ["text-title", "Projekt 2"],
+var de_project = new Map([
+    ["titel", "Projekt 1"],
     ["text-a-project-title"," Titel des Projekts"],
     ["text-a-projektleiter"," Projektleiter des Projekts"],
     ["text-a-kurzbescheibung","Kurzbeschreibung des Projekts"],
@@ -11,3 +11,5 @@ var de_project2 = new Map([
     ["text-label-enddatum","Enddatum"]
 
 ])
+
+export default de_project;

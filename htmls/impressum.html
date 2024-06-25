@@ -6,6 +6,47 @@
         <meta name=“description“ content=“Informationen>
         <meta name=“author“ content=“Pascal-Simon>
         <title>Impressum</title>
+        <script type="module">
+            import en_base from '../js/Übersetzungen/EN/en_base.js';
+            import de_base from '../js/Übersetzungen/DE/de_base.js';
+     
+    
+            function checkLanguage() {
+                let userLang = navigator.language;
+    
+                if (userLang.indexOf("en") >= 0) {
+                    translate(en_base);
+                   
+                } else {
+                    translate(de_base);
+                }
+    
+            }
+    
+            function translate(datas){
+    
+                datas.forEach((value, key) => {
+                    var element = document.getElementById(key);
+                    if (element) {
+                if (element.tagName === 'INPUT' && element.type === 'submit') {
+                    element.value = value; // Ändern des value-Attributs für submit-Button
+                } else {
+                    element.textContent = value; // Ändern des textContent für andere Elemente
+                }
+            }
+                });
+                
+            }
+    
+    
+            document.addEventListener("DOMContentLoaded", function () {
+    
+                checkLanguage();
+                
+            });
+    
+    
+        </script>
     </head>
     <body id="top">
         <div><h1>Impressum</h1></div>

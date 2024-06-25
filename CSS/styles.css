@@ -25,12 +25,11 @@ body{
 }
 
 header{
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: flex;
-    justify-content: flex-end;
-    padding: 10px;
+    background-color: #57124e;
+    display: flex; 
+    justify-content: space-between;  
+    align-items: center;
+    height: 200px;
 }
 
 

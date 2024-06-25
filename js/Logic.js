@@ -1,3 +1,4 @@
+
 class Sortieren {
     constructor() { }
 
@@ -112,7 +113,7 @@ const projektlaufzeit = (projektID) => {
     return sum
 }
 
-function addProjetDuration() {
+function addProjectDuration() {
 
     for (let i = 0; i < allInfo.projekte.length; i++) {
 
@@ -131,6 +132,8 @@ async function loadJSON(url) {
         });
     return await response.json(); // Warten bis wir in den fullFill Zustand übergegangen sind
 }
+
+
 
 
 function createProjects(result) {
@@ -224,17 +227,7 @@ function responseMinMaxSpan(result) {
 }
 
 
-/*
 
-if (localStorage.getItem("projekt")) {
-    addNewProject()
-    console.log("NICHT LEER")
-} else {
-    console.log("LEER")
-    addNewProject(new Projekt(0, "a", "a", "a", "b", "a", "1.1.2024", "1.2.2024"), new Artefakt(0, "a", "a", "a", 0, 20, 11), new Aufgabenbereich(0, "a", "a", 0))
-}
-
-*/
 
 
 Promise.all([
@@ -250,49 +243,12 @@ Promise.all([
     )
     .then(() => {
         projectRef();
-        addProjetDuration();
-        printProjects();
+        addProjectDuration();
+        neusteProjekte();
+
     })
     .catch(error => console.error('Error:', error));
 
-
-function printProjects() {
-    console.log("Projekte");
-    for (let i = 0; i < allInfo.projekte.length; i++) {
-        console.log(allInfo.projekte[i]);
-    }
-}
-
-
-function printAllDatas() {
-
-    console.log("Projekte");
-    for (let i = 0; i < allInfo.projekte.length; i++) {
-        console.log(allInfo.projekte[i]);
-    }
-
-    console.log("Artefakte");
-    for (let i = 0; i < allInfo.artefakte.length; i++) {
-        console.log(allInfo.artefakte[i]);
-    }
-
-    console.log("Aufgabenbereiche");
-    for (let i = 0; i < allInfo.aufgabenbereiche.length; i++) {
-        console.log(allInfo.aufgabenbereiche[i]);
-    }
-
-
-    console.log("Projekt : Aufgabenbereich");
-    for (let i = 0; i < allInfo.projektAufgabenbereichData.length; i++) {
-        console.log(allInfo.projektAufgabenbereichData[i]);
-    }
-
-    console.log("Projekt : Artefakt");
-    for (let i = 0; i < allInfo.projektArtefaktData.length; i++) {
-        console.log(allInfo.projektArtefaktData[i]);
-    }
-
-}
 
 
 
@@ -322,33 +278,25 @@ function projectRef() {
 }
 
 
-/* 404 Fehler
-function addNewProject(Projekt, Artefakt, Aufgabenbereich) {
-    const localProj = {
-        projekt: Projekt,
-        artefakt: Artefakt,
-        aufgabenbereich: Aufgabenbereich
+
+function neusteProjekte() {
+    let neuste = []
+
+    for( let element of allInfo.projekte) {
+        neuste.push(element)
     }
-    if (localStorage.getItem("projekt")) {
-        console.log("Projekt geladen");
-        const proj = JSON.parse(localStorage.getItem("projekt"))
-        localStorage.removeItem("projekt")
-        addNewProject(proj.projekt, proj.artefakt, proj.aufgabenbereich)
-    } else {
-        console.log("Projekt neu");
-        fetch('https://scl.fh-bielefeld.de/WBA/projectsAPI', {
-            method: "POST",
-            body: JSON.stringify(localProj)
-        }).then(res => {
-            console.log("Objekt erfolgreich zum Server geschickt");
-        }).catch(err => {
-            // Projekt im Localstorage anlegen wenn Fehler ist 
-            localStorage.setItem("projekt", JSON.stringify(localProj))
-        })
+    
+    neuste.sort((a, b) => {
+        return a.startDatum-b.startDatum
+    }).reverse()
+
+    while(neuste.length >3) {
+        neuste.pop()
     }
+
+    document.querySelector('#text-a-projekt-one').href = "htmls/projekt.html?id="+neuste[0].id
+    document.querySelector('#text-a-projekt-two').href = "htmls/projekt.html?id="+neuste[1].id
+    document.querySelector('#text-a-projekt-three').href = "htmls/projekt.html?id="+neuste[2].id
+
+
 }
-*/
-
-
-
-

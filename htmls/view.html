@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="de">
 
 <head>
@@ -9,20 +9,73 @@
     <title id="text-title">Übersicht der Projekte</title>
     <link rel="stylesheet" href="/CSS/styles.css">
     <link rel="stylesheet" href="/CSS/view.css">
+    <script src="../js/view.js"></script>
+    <script src="./js/main.js"></script>
+    <script type="module">
+        import en_base from '../js/Übersetzungen/EN/en_base.js';
+        import de_base from '../js/Übersetzungen/DE/de_base.js';
+ 
+        import en_view from '../js/Übersetzungen/EN/en_view.js';
+        import de_view from '../js/Übersetzungen/DE/de_view.js';
+
+        function checkLanguage() {
+            let userLang = navigator.language;
+
+            if (userLang.indexOf("en") >= 0) {
+                translate(en_base);
+                translate(en_view);
+               
+            } else {
+                translate(de_base);
+                translate(de_view);
+            }
+
+        }
+
+        function translate(datas){
+
+            datas.forEach((value, key) => {
+                var element = document.getElementById(key);
+                if (element) {
+            if (element.tagName === 'INPUT' && element.type === 'submit') {
+                element.value = value; // Ändern des value-Attributs für submit-Button
+            } else {
+                element.textContent = value; // Ändern des textContent für andere Elemente
+            }
+        }
+            });
+            
+        }
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+            checkLanguage();
+            
+        });
+
+
+    </script>
 </head>
 
 <body id="top">
-    <header>   
-        <div id="login_bereich">
-            <form action="login.html" class="form">
+    <header>
+        <div style="position: relative; left: 50%">
+            <h1 id="titel" >Projektansicht</h1>
+        </div>
+        <div id="login_bereich" style="display: flex; justify-content: end;">
+            <form id="loginForm" class="form">
                 <label for="Benutzername" id="text-label-Benutzername">Benutzername</label>
                 <input type="text" id="Benutzername" placeholder="Benutzername" name="Benutzername" required>
                 <label for="Password" id="text-label-password">Password</label>
                 <input type="password" id="Password" placeholder="Password" name="Password" required>
-                <input type="submit" value="Einloggen">
+                <input id="login" type="submit" value="Einloggen">
             </form>
-            <a href="register.html" id="text-a-register">Hier Registrieren</a>
-
+            <div style="height: 20px;"></div>
+            <a href="htmls/register.html" id="text-a-register">Hier Registrieren</a>
+        </div>
+        <div id="logOut" style="display: none;">
+            <a style="cursor: pointer; border-radius: 10px; background-color: aliceblue; border: 3px solid white; padding: 5px; margin-right: 30px;" onclick="doLogout()">Logout</a>
         </div>
     </header>
     <nav>
@@ -32,7 +85,7 @@
             <li><a href="new.html" id="text-a-menu-two">Neues Projekt</a></li>
         </ul>
     </nav>  
-    <section>
+    <section id="projekt-liste">
         <div class="filter-container">
             <a href="" class="btn-filter">Filter</a>
             <ul class="filter-options">
@@ -41,43 +94,6 @@
                 <li><a href="#">Option 3</a></li>
             </ul>
         </div>
-        <ul>
-            <li>
-                <p class="projektTitel">Projektname: NextStep</p>
-                <p>Zeitaufwand: 20h</p>
-                <p>Erstelldatum: 20.12.2023</p>
-                <p class="kurzbeschreibung">Kurzbeschreibung: Erstellung einer Jobwebseite</p>
-
-                <a href="projekt1.html">Projekt 1</a>
-
-
-            </li>
-        </ul>
-        <ul>
-            <li>
-
-                <p class="projektTitel">YourWay</p>
-                <p>22h</p>
-                <p>20.10.2023</p>
-                <p class="kurzbeschreibung">Erstellung einer KI</p>
-
-                <a href="projekt2.html">Projekt 2</a>
-
-            </li>
-        </ul>
-        <ul>
-            <li>
-                <p class="projektTitel">Projekt XY</p>
-                <p>13h</p>
-                <p>20.12.2022</p>
-                <p class="kurzbeschreibung">Erstellung eines Roboters</p>
-
-                <a href="projekt3.html">Projekt 3</a>
-
-            </li>
-        </ul>
-
-
     </section>
 
     <footer>
@@ -85,9 +101,7 @@
         <a href="htmls/datenschutz.html" id="text-a-datenschutz">Datenschutzerklärung</a>
         <a href="htmls/haftung.html" id="text-a-haftung">Haftungsausschluss</a>
         <a id="scroll_top" href="#top" id="text-a-scroll-top">Zurück zum Seitenanfang</a>
-        <p id="text-p-copyright">
-            Copyright und Kontaktinformationen
-        </p>
+        <p id="text-p-copyright">Copyright und Kontaktinformationen</p>
     </footer>
 </body>
 

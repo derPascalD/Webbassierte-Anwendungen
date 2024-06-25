@@ -22,7 +22,7 @@
     margin: 20px;
 }
 
-#welcome_one{
+.welcome_one{
     opacity: 0;
     animation-name: ausblenden;
     animation-duration: 6s;
@@ -31,7 +31,7 @@
 }
 
 
-#welcome_two{
+.welcome_two{
     opacity: 0;
     animation-name: einblenden;
     animation-delay:  4s;
@@ -48,28 +48,4 @@
 @keyframes einblenden {
     from {opacity: 0;}
     to {opacity: 1;}
-}
-
-@media screen and (min-width: 1920px) {
-    header {
-        background-image: url("/assets/Startseite1920.jpg");
-    }
-}
-
-@media screen and (min-width: 1280px) and (max-width: 1919px) {
-    header {
-        background-image: url("/assets/Startseite1280.jpg");
-    }
-}
-
-@media screen and (min-width: 640px) and (max-width: 1279px) {
-    header {
-        background-image: url("/assets/Startseite640.jpg");
-    }
-}
-
-@media screen and (min-width: 0px) and (max-width: 639px) {
-    header {
-        background-image: url("/assets/Startseite320.jpg");
-    }
 }

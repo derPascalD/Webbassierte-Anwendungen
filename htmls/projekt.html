@@ -6,28 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name=“description“ content=“Informationen>
     <meta name=“author“ content=“Pascal-Simon>
-    <title id="text-title">Neues Projekt</title>
+    <title id="text-title">Projekt NextSTEP</title>
     <link rel="stylesheet" href="/CSS/styles.css">
     <link rel="stylesheet" href="/CSS/projektseite.css">
-    <link rel="stylesheet" href="/CSS/new.css">
-    <script src="../js/newProject.js"></script>
+    <script src="../js/projekt.js"></script>
     <script src="./js/main.js"></script>
     <script type="module">
         import en_base from '../js/Übersetzungen/EN/en_base.js';
         import de_base from '../js/Übersetzungen/DE/de_base.js';
-        import en_new from '../js/Übersetzungen/EN/en_new.js';
-        import de_new from '../js/Übersetzungen/DE/de_new.js';
+ 
+        import en_project from '../js/Übersetzungen/EN/en_project.js';
+        import de_project from '../js/Übersetzungen/DE/de_project.js';
 
         function checkLanguage() {
             let userLang = navigator.language;
 
             if (userLang.indexOf("en") >= 0) {
                 translate(en_base);
-                translate(en_new);
+                translate(en_project);
                
             } else {
                 translate(de_base);
-                translate(de_new);
+                translate(en_project);
             }
 
         }
@@ -56,13 +56,12 @@
 
 
     </script>
-
 </head>
 
 <body id="top">
     <header>
         <div style="position: relative; left: 50%">
-            <h1 id="titel" >Projekt erstellen</h1>
+            <h1 id="titel" >Projekt</h1>
         </div>
         <div id="login_bereich" style="display: flex; justify-content: end;">
             <form id="loginForm" class="form">
@@ -81,11 +80,12 @@
     </header>
     <nav>
         <ul>
-            <li><a href="/index.html"><img width="100" height="100" src="/assets/startseite.svg" alt="Startseiten Icon"/></a></li>
-            <li><a href="view.html" id="text-a-menu-one">Projekte</a></li>
+            <li><a href="/index.html"><img width="100" height="100" src="/assets/startseite.svg"
+                        alt="Startseiten Icon" /></a></li>
+            <li><a href="view.html" id="text-a-menu-one">Projektdetailseite</a></li>
             <li><a href="new.html" id="text-a-menu-two">Neues Projekt</a></li>
         </ul>
-    </nav>  
+    </nav>
     <section id="inhalt">
         <section id="menu">
             <h2 id="text-h2-title">Bereiche des Projekts</h2>
@@ -109,40 +109,64 @@
             <a href="#projektziele" id="text-a-projektziele">
                 Ziele des Projekts
             </a>
-
-
         </section>
+        <section id="seiteninhalt">
+            <section id="projektHeader">
+                <img src="../assets/Logo-NEXTstep.jpg" width="100px" height="100px" alt="NEXTSTEP" />
+                <h2 id="titel">NEXTSTEP</h2>
+                <p id="projektleiter">Projektleiter: Simon Gartzke und Pascal Daniel</p>
+            </section>
 
-        <section id="projektSection">
-            <h1 id="text-h1-title-projekt-erstellen">Neues Projekt erstellen</h1>
-            <form id="projektForm">   
-                <section id="projektHeader" style="display: flex; justify-content: space-between">
-                    <label for="fileInput">    
-                        <img src="../assets/upload.png" width="130px" height="130px" style="cursor: pointer;" id="uploadPreview" alt="Upload Preview"/>
-                    </label>
-                    <input type="file" style="display: none;" required id="fileInput" name="file"><br>
-                    <input type="text" placeholder="Titel des Projektes" id="projektTitel" required name="projektTitel"><br>
-                    <p id="projektleiter">Projektleiter: PascalSimon</p>
-                    <p id="filePath"></p>
-                </section>
+            <p id="kurzbeschreibung">Kurzbeschreibung: Webseite für Karriere</p>
+            <p id="komplettbeschreibung">Komplettbeschreibung: Bei dem Projekt handelt es sich um eien Webseite, wo man
+                nach Job suchen kann, sowie<br>
+                Ausbildungsplätze
+                <br />
+                <br />
 
-                <input type="text" placeholder="Kurzbeschreibung" required name="short"><br>
-                <input type="text" placeholder="Langbeschreibung" required name="long"><br>
-                <input type="text" placeholder="Projektziel 1"  name="ziel1" class="kleineresInputFeld"><br>
-                <input type="text" placeholder="Projektziel 2"  name="ziel2" class="kleineresInputFeld"><br>
-                <label for="startdatum" id="text-label-startdatum">Startdatum:</label>
-                <input type="date" required name="startdate" class="kleineresInputFeld" id="startdatum"> <br>
-                <label for="enddatum" id="text-label-enddatum">Enddatum:</label>
-                <input type="date" required name="enddate" class="kleineresInputFeld" id="enddatum"> <br>
-                <input type="submit" value="Projekt erstellen" class="kleineresInputFeld">
+
+            </p>
+            <br />
+            <ol id="projektziele">
+                <li>
+                    Projektziel
+                </li>
+                <li>
+                    Projektziel
+                </li>
+            </ol>
+
+            <form action="javascript:;" onsubmit="sendKommentar()">
+                <label for="kommentar">Kommentar</label><br>
+                <input type="text" id="kommentar" name="kommentar" required><br>
+                <label for="bewertung">Bewertung abgeben: </label>
+                <br>
+                <select name="bewertung" id="bewertung" required>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <br>
+                </select>
+                <br><br>
+                <input type="submit" value="Submit">
             </form>
-            <div id="message">
+
+
+            <div
+                style="display: flex; flex-direction: column; justify-content: center; padding: 10px; min-height: 50px; border: 3px solid white; border-radius: 0 10px 0 0; transition: 0.5s all ease-in-out; background-color: aliceblue;">
+                <h2 style="margin-bottom: 20px;">Letzte Bewertungen</h2>
+                <span id="result"
+                    style="display: block; color: rgb(22, 18, 18); font-size: 18px; font-weight: 600; font-family: 'Times New Roman', Times, serif;">
+                </span>
             </div>
+
         </section>
     </section>
 
 
-     <footer>
+    <footer>
         <a href="htmls/impressum.html" id="text-a-impressum">Impressum</a>
         <a href="htmls/datenschutz.html" id="text-a-datenschutz">Datenschutzerklärung</a>
         <a href="htmls/haftung.html" id="text-a-haftung">Haftungsausschluss</a>
@@ -150,6 +174,7 @@
         <p id="text-p-copyright">
             Copyright und Kontaktinformationen
         </p>
+
     </footer>
 </body>
 

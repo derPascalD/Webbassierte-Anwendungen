@@ -4,7 +4,6 @@ section {
     padding: 40px;
 }
 
-
 section ul li {
     margin-top: 20px;
 
@@ -84,28 +83,3 @@ section ul li {
 
 
 
-
-
-@media screen and (min-width: 1920px) {
-    header {
-        background-image: url("/assets/ÜbersichtderProjekte1920.jpg");
-    }
-}
-
-@media screen and (min-width: 1280px) and (max-width: 1919px) {
-    header {
-        background-image: url("/assets/ÜbersichtderProjekte1280.jpg");
-    }
-}
-
-@media screen and (min-width: 640px) and (max-width: 1279px) {
-    header {
-        background-image: url("/assets/ÜbersichtderProjekte640.jpg");
-    }
-}
-
-@media screen and (min-width: 0px) and (max-width: 639px) {
-    header {
-        background-image: url("/assets/ÜbersichtderProjekte320.jpg");
-    }
-}

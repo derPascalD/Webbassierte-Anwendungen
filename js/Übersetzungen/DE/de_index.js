@@ -1,4 +1,5 @@
 var de_index = new Map([
+    ["titel", "Startseite"],
     ["text-title", "Startseite | Projektseite"],
     ["text-h1-Zeile1", "Spannende Projekte für"],
     ["text-h1-Zeile2", "Motivierte Studierende"],
@@ -10,3 +11,5 @@ var de_index = new Map([
     ["text-a-projekt-two", "Projekt 2"],
     ["text-a-projekt-three", "Projekt 3"]
 ])
+
+export default de_index;

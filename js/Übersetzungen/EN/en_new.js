@@ -1,5 +1,5 @@
-var en_base = new Map([
-    ["text-title", "New Project"],
+var en_new = new Map([
+    ["titel", "New Project"],
     ["text-a-project-title"," Project title"],
     ["text-a-projektleiter"," Projectleader for Projcts"],
     ["text-a-kurzbescheibung","Shortdescription of the Projects"],
@@ -11,3 +11,5 @@ var en_base = new Map([
     ["text-label-enddatum","Enddate"]
 
 ])
+
+export default en_new;

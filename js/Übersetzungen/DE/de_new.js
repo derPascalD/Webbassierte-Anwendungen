@@ -1,5 +1,5 @@
 var de_new = new Map([
-    ["text-title", "Neues Projekt"],
+    ["titel", "Neues Projekt"],
     ["text-a-project-title"," Titel des Projekts"],
     ["text-a-projektleiter"," Projektleiter des Projekts"],
     ["text-a-kurzbescheibung","Kurzbeschreibung des Projekts"],
@@ -11,3 +11,5 @@ var de_new = new Map([
     ["text-label-enddatum","Enddatum"]
 
 ])
+
+export default de_new;

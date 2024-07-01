@@ -103,3 +103,12 @@ function sortAfterTime() {
     clearListe()
     projektHinzufuegen(projektListe)
 }
+
+
+function sortAfterDatum() {
+    projektListe.sort((a, b) => {
+        return a.startdatum-b.startdatum
+    })
+    clearListe()
+    projektHinzufuegen(projektListe)
+}

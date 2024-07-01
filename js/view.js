@@ -93,7 +93,9 @@ window.onload = async () => {
 
 function clearListe() {
     let liste = document.getElementById('projekt-liste')
-    liste.innerHTML = ''
+    while (liste.childNodes.length >0) {
+        liste.removeChild(liste.children[0])
+    }
 }
 
 function sortAfterTime() {

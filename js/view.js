@@ -91,4 +91,15 @@ window.onload = async () => {
 }
 
 
+function clearListe() {
+    let liste = document.getElementById('projekt-liste')
+    liste.innerHTML = ''
+}
 
+function sortAfterTime() {
+    projektListe.sort((a, b) => {
+        return a.projektlaufzeit-b.projektlaufzeit
+    })
+    clearListe()
+    projektHinzufuegen(projektListe)
+}

@@ -104,7 +104,9 @@ function sortAfterTime() {
     } 
 
     liste.sort((a, b) => {
-        return a.projektlaufzeit-b.projektlaufzeit
+        x = projektlaufzeit(a.id_projekt)
+        y = projektlaufzeit(b.id_projekt)
+        return x-y
     })
 
     clearListe()
@@ -122,7 +124,7 @@ function sortAfterDatum() {
     } 
 
     liste.sort((a, b) => {
-        return a.startdatum-b.startdatum
+        return new Date(a.startdatum)-new Date(b.startdatum)
     })
 
     clearListe()

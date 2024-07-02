@@ -13,8 +13,8 @@ window.onload = () => {
         datenLaden(data.records[0]);
     })
 
-    if(localStorage.getItem("Kommentare")) {
-        let kommentare = JSON.parse(localStorage.getItem("Kommentare"))
+    if(localStorage.getItem("Kommentar"+id)) {
+        let kommentare = JSON.parse(localStorage.getItem("Kommentar"+id))
         let par = document.getElementById('result')
         for (let element of kommentare) {
             let p = document.createElement('p')
@@ -42,6 +42,8 @@ function datenLaden(data) {
 }
 
 function sendKommentar() {
+    let id = window.location.href.split('=')[1]
+
     let kommentar = document.querySelector('#kommentar').value
     let bewertung = document.querySelector('#bewertung').value
 
@@ -49,13 +51,13 @@ function sendKommentar() {
         komm:kommentar,
         be:bewertung
     }
-    if (localStorage.getItem("Kommentare")) {
-        let kommentare = JSON.parse(localStorage.getItem("Kommentare"))
+    if (localStorage.getItem("Kommentar"+id)) {
+        let kommentare = JSON.parse(localStorage.getItem("Kommentar"+id))
         kommentare.push(item)
-        localStorage.setItem("Kommentare", JSON.stringify(kommentare))
+        localStorage.setItem("Kommentar"+id, JSON.stringify(kommentare))
 
     } else {
-        localStorage.setItem("Kommentare", JSON.stringify(Array.of(item)))
+        localStorage.setItem("Kommentar"+id, JSON.stringify(Array.of(item)))
     }
     window.location.reload()
 }

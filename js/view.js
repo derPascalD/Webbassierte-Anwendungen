@@ -72,7 +72,7 @@ function createArtefacts(data) {
     }
 }
 
-
+var saveData
 
 window.onload = async () => {
     Promise.all([
@@ -82,6 +82,7 @@ window.onload = async () => {
 
     ])
         .then(() => {
+            saveData = document.getElementById('projekt-liste').innerHTML
             for (let element of projektListe) {
                 projektHinzufuegen(element)
             }
@@ -92,25 +93,40 @@ window.onload = async () => {
 
 
 function clearListe() {
-    let liste = document.getElementById('projekt-liste')
-    while (liste.childNodes.length >0) {
-        liste.removeChild(liste.children[0])
-    }
+    document.getElementById('projekt-liste').innerHTML = saveData
 }
 
 function sortAfterTime() {
-    projektListe.sort((a, b) => {
+    let liste = []
+
+    for (let element of projektListe) {
+        liste.push(element)
+    } 
+
+    liste.sort((a, b) => {
         return a.projektlaufzeit-b.projektlaufzeit
     })
+
     clearListe()
-    projektHinzufuegen(projektListe)
+    for (let element of liste) {
+        projektHinzufuegen(element)
+    }
 }
 
 
 function sortAfterDatum() {
-    projektListe.sort((a, b) => {
+    let liste = []
+
+    for (let element of projektListe) {
+        liste.push(element)
+    } 
+
+    liste.sort((a, b) => {
         return a.startdatum-b.startdatum
     })
+
     clearListe()
-    projektHinzufuegen(projektListe)
+    for (let element of liste) {
+        projektHinzufuegen(element)
+    }
 }
